@@ -1,0 +1,155 @@
+---
+// Differentiators.astro — Key benefits / differentiators bento grid
+import TexasStar from './TexasStar.astro';
+
+const differentiators = [
+  {
+    icon: '📦',
+    titleEs: 'Stock Permanente en Planta',
+    titleEn: 'Permanent Plant Stock',
+    descEs: 'Mantenemos inventario constante para entregas urgentes directas en tu planta de producción, sin esperas ni importaciones.',
+    descEn: 'We maintain constant inventory for urgent, direct-to-plant deliveries, with no waiting times or import delays.',
+    tagEs: 'Entrega Inmediata',
+    tagEn: 'Immediate Delivery',
+    tagColor: 'var(--saddle-brown-light)',
+    wide: true,
+  },
+  {
+    icon: '🏆',
+    titleEs: 'Distribución Exclusiva',
+    titleEn: 'Exclusive Distribution',
+    descEs: 'Representamos marcas mundiales con distribución exclusiva en la región, garantizando autenticidad y soporte técnico.',
+    descEn: 'We represent global brands with exclusive regional distribution, ensuring authenticity and specialized technical support.',
+    tagEs: 'Marcas Premium',
+    tagEn: 'Premium Brands',
+    tagColor: 'var(--brick-red-light)',
+    wide: false,
+  },
+  {
+    icon: '🔧',
+    titleEs: 'Reparación EFKA Certificada',
+    titleEn: 'Certified EFKA Repair',
+    descEs: 'Servicio técnico especializado para equipos EFKA y repuestos originales para pedales, manteniendo tus líneas operando.',
+    descEn: 'Specialized technical service for EFKA equipment and genuine pedal spare parts to keep your lines running.',
+    tagEs: 'Servicio Técnico',
+    tagEn: 'Technical Service',
+    tagColor: 'var(--sand-dark)',
+    wide: false,
+  },
+  {
+    icon: '💰',
+    titleEs: 'Ahorro en Producción',
+    titleEn: 'Production Savings',
+    descEs: 'Nuestros productos incrementan la productividad y generan ahorros reales en tus procesos productivos textiles.',
+    descEn: 'Our products boost productivity and generate tangible cost savings in your textile production lines.',
+    tagEs: 'ROI Comprobado',
+    tagEn: 'Proven ROI',
+    tagColor: 'var(--saddle-brown-light)',
+    wide: false,
+  },
+  {
+    icon: '🤝',
+    titleEs: 'Servicio Personalizado',
+    titleEn: 'Personalized Service',
+    descEs: 'Atención directa con ingenieros especializados que entienden tus necesidades de producción industrial.',
+    descEn: 'Direct support from specialized engineers who fully understand your industrial production needs.',
+    tagEs: 'Asesoría Experta',
+    tagEn: 'Expert Advice',
+    tagColor: 'var(--sand-dark)',
+    wide: false,
+  },
+  {
+    icon: '🛡️',
+    titleEs: 'Equipos de Seguridad',
+    titleEn: 'Safety Equipment',
+    descEs: 'Guantes de malla y equipos de protección personal especializados para operadores de corte y costura industrial.',
+    descEn: 'Mesh steel gloves and specialized personal protective equipment for cutting and industrial sewing operators.',
+    tagEs: 'Seguridad Laboral',
+    tagEn: 'Workplace Safety',
+    tagColor: 'var(--brick-red-light)',
+    wide: true,
+  },
+];
+---
+
+<section class="relative py-24 md:py-32 overflow-hidden"
+  style="background: linear-gradient(180deg, var(--iron-950) 0%, var(--iron-900) 100%);">
+
+  <!-- Deco -->
+  <div class="mesh-bloom"
+    style="width:500px; height:500px; top:20%; right:-10%; background: radial-gradient(circle, rgba(140,82,48,0.08) 0%, transparent 70%);"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Header -->
+    <div class="text-center mb-16 reveal">
+      <span class="section-label mb-5">
+        <TexasStar class="text-brick-red-light" size="w-4 h-4" />
+        <span data-es="Diferenciadores" data-en="Differentiators">Diferenciadores</span>
+      </span>
+      <h2 class="section-title mt-4 mb-5"
+        data-es="¿Por qué elegir<br/><span class='gradient-text-gold'>Rustic Iron Mexico?</span>"
+        data-en="Why choose<br/><span class='gradient-text-gold'>Rustic Iron Mexico?</span>">
+        ¿Por qué elegir<br/>
+        <span class="gradient-text-gold">Rustic Iron Mexico?</span>
+      </h2>
+      <p class="text-lg max-w-xl mx-auto font-body" style="color: var(--steel-400);"
+        data-es="No somos solo proveedores — somos socios estratégicos en el crecimiento de tu operación textil."
+        data-en="We are not just suppliers — we are strategic partners in the growth of your textile operation.">
+        No somos solo proveedores — somos socios estratégicos en el crecimiento de tu operación textil.
+      </p>
+    </div>
+
+    <!-- Bento Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      {differentiators.map((d, i) => (
+        <div
+          class={`leather-card p-7 group transition-all duration-500 reveal ${d.wide ? 'md:col-span-2 lg:col-span-1' : ''}`}
+          style={`transition-delay: ${i * 60}ms;`}
+        >
+          <!-- Grain texture overlay -->
+          <div class="grain-overlay"></div>
+
+          <!-- Icon -->
+          <div class="text-4xl mb-5 transition-transform duration-300 group-hover:scale-110 inline-block">
+            {d.icon}
+          </div>
+
+          <!-- Tag -->
+          <div class="mb-4">
+            <span class="text-xs font-bold tracking-[0.2em] uppercase px-3 py-1 rounded-full font-subtitle"
+              style={`background: ${d.tagColor}12; color: ${d.tagColor}; border: 1px solid ${d.tagColor}25;`}
+              data-es={d.tagEs} data-en={d.tagEn}>
+              {d.tagEs}
+            </span>
+          </div>
+
+          <!-- Title -->
+          <h3 class="text-xl font-bold mb-3 transition-colors duration-300 group-hover:text-sand-light"
+            style="color: var(--steel-50); font-family: var(--font-title);"
+            data-es={d.titleEs} data-en={d.titleEn}>
+            {d.titleEs}
+          </h3>
+
+          <!-- Desc -->
+          <p class="text-sm leading-relaxed font-body" style="color: var(--steel-400);"
+            data-es={d.descEs} data-en={d.descEn}>
+            {d.descEs}
+          </p>
+
+          <!-- Hover glow line -->
+          <div class="mt-6 h-0.5 rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"
+            style={`background: linear-gradient(90deg, ${d.tagColor}, transparent);`}></div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('active'); });
+  }, { threshold: 0.06 });
+  revealEls.forEach(el => observer.observe(el));
+</script>

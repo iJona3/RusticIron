@@ -1,0 +1,35 @@
+---
+// TexasStar.astro — Faceted metal Texas Star SVG
+interface Props {
+  class?: string;
+  size?: string;
+}
+const { class: className = "text-brick-red", size = "w-6 h-6" } = Astro.props;
+---
+<svg viewBox="0 0 100 100" class={`${size} ${className} flex-shrink-0`} fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <!-- Outer dashed ring (sheriff star style) -->
+  <circle cx="50" cy="50" r="42" fill="none" stroke="currentColor" stroke-width="1.8" stroke-dasharray="3 3"/>
+  <!-- Inner thin ring -->
+  <circle cx="50" cy="50" r="34" fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.4"/>
+  
+  <!-- Facets (alternating light & shadow for 3D metallic feel) -->
+  <!-- Top Ray -->
+  <polygon points="50,50 50,18 59,41" fill="currentColor" opacity="0.95"/>
+  <polygon points="50,50 50,18 41,41" fill="currentColor" opacity="0.55"/>
+  
+  <!-- Right Ray -->
+  <polygon points="50,50 83,41 64,55" fill="currentColor" opacity="0.85"/>
+  <polygon points="50,50 83,41 59,41" fill="currentColor" opacity="0.5"/>
+  
+  <!-- Bottom Right Ray -->
+  <polygon points="50,50 71,78 50,64" fill="currentColor" opacity="0.9"/>
+  <polygon points="50,50 71,78 64,55" fill="currentColor" opacity="0.6"/>
+  
+  <!-- Bottom Left Ray -->
+  <polygon points="50,50 29,78 36,55" fill="currentColor" opacity="0.8"/>
+  <polygon points="50,50 29,78 50,64" fill="currentColor" opacity="0.45"/>
+  
+  <!-- Left Ray -->
+  <polygon points="50,50 17,41 41,41" fill="currentColor" opacity="0.95"/>
+  <polygon points="50,50 17,41 36,55" fill="currentColor" opacity="0.55"/>
+</svg>

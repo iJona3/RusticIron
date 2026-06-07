@@ -1,0 +1,558 @@
+---
+// Products.astro — Premium Product Gallery with Real Images + Detailed Product Modal (Bilingual Support)
+import TexasStar from './TexasStar.astro';
+
+const categories = [
+  {
+    id: 'maquinas-coser',
+    icon: '🧵',
+    titleEs: 'Máquinas de Coser',
+    titleEn: 'Sewing Machines',
+    subtitleEs: 'Juki · Dürkopp · Pegaso',
+    subtitleEn: 'Juki · Dürkopp · Pegaso',
+    descEs: 'Las mejores marcas del mercado mundial: máquinas rectas, de doble aguja y especiales para todo tipo de tela industrial.',
+    descEn: 'The best brands in the global market: straight, double needle, and special machines for all types of industrial fabric.',
+    color: '#ab6a42', // saddle brown light
+    images: [
+      { src: '/images/. Máquinas de coser — Juki, Durkopp, Pegaso/juki_recta.jpg', alt: 'Máquina de coser Juki recta industrial' },
+      { src: '/images/. Máquinas de coser — Juki, Durkopp, Pegaso/about-product_3.webp', alt: 'Máquina de coser industrial' },
+    ],
+    featured: true,
+  },
+  {
+    id: 'tijeras',
+    icon: '✂️',
+    titleEs: 'Tijeras, Nippers y Descosedores',
+    titleEn: 'Scissors, Nippers & Rippers',
+    subtitleEs: 'Corte de alta precisión',
+    subtitleEn: 'High-Precision Cutting',
+    descEs: 'Herramientas de corte profesional para todos los procesos de la industria textil. Tijeras industriales, nippers y descosedores.',
+    descEn: 'Professional cutting tools for all textile processes. Industrial scissors, nippers, and seam rippers.',
+    color: '#b23f2f', // brick red
+    images: [
+      { src: '/images/Tijeras, Nippers y Descosedores/62FA8A81-BCB6-4023-BBE8-272AFB17D063.webp', alt: 'Tijeras industriales para textil' },
+      { src: '/images/Tijeras, Nippers y Descosedores/tijeras-industriales-textil-pollerias-11-truper-ajustables-102945.jpg', alt: 'Tijeras ajustables industriales' },
+      { src: '/images/Tijeras, Nippers y Descosedores/wiss-4-3-4-inch-industrial-thread-nippers-sharp-points-1.webp', alt: 'Nippers Wiss industriales' },
+    ],
+    featured: false,
+  },
+  {
+    id: 'agujas',
+    icon: '🪡',
+    titleEs: 'Agujas Industriales',
+    titleEn: 'Industrial Needles',
+    subtitleEs: 'Organ · Groz-Beckert · Schmetz',
+    subtitleEn: 'Organ · Groz-Beckert · Schmetz',
+    descEs: 'Agujas de precisión de las tres marcas líderes globales. Para costura industrial de todo tipo y calibre.',
+    descEn: 'Precision needles from the three global leading brands. For industrial sewing of all types and gauges.',
+    color: '#decbb7', // sand
+    images: [
+      { src: '/images/Agujas — Organ, Groz-Beckert, Schmetz/Groz-scaled.jpg', alt: 'Agujas Groz-Beckert industriales' },
+      { src: '/images/Agujas — Organ, Groz-Beckert, Schmetz/Sewing_Gestaltungsbilder_Kundenportal_Startseite.jpg', alt: 'Agujas para máquina de coser industrial' },
+      { src: '/images/Agujas — Organ, Groz-Beckert, Schmetz/my-11134207-7rasl-m9k2vhqn4cvo48.jfif', alt: 'Agujas Organ Needles industriales' },
+    ],
+    featured: true,
+  },
+  {
+    id: 'cortadoras',
+    icon: '🔪',
+    titleEs: 'Cortadoras y Equipos de Seguridad',
+    titleEn: 'Cutters & Safety Equipment',
+    subtitleEs: 'Corte industrial · Guantes de malla',
+    subtitleEn: 'Industrial Cutting · Chainmail Gloves',
+    descEs: 'Cortadoras eléctricas y rotativas de alto rendimiento, junto con guantes de malla metálica certificados para protección total.',
+    descEn: 'High-performance electric and rotary cutters, along with certified metal mesh gloves for total protection.',
+    color: '#b23f2f',
+    images: [
+      { src: '/images/Máquinas para corte de telas y Equipos de Seguridad/taglierina-verticale-scaled.jpg', alt: 'Cortadora vertical industrial de telas' },
+      { src: '/images/Máquinas para corte de telas y Equipos de Seguridad/trabajador-textil-que-usa-cortadora-o-maquina-cortadora-cuchillas-rectas-maquina-grande-cortar-telas-fabrica-textil-usa-guantes-cadena-protegerse.avif', alt: 'Trabajador usando cortadora con guantes de seguridad' },
+      { src: '/images/Máquinas para corte de telas y Equipos de Seguridad/trabajador-textil-que-usa-cortadora-o-maquina-cortadora-cuchillas-rectas-maquina-grande-cortar-telas-fabrica-textil-usa-guantes-cadena-proteg (1).avif', alt: 'Cortadora de telas industrial' },
+    ],
+    featured: false,
+  },
+  {
+    id: 'prensatelas',
+    icon: '🦶',
+    titleEs: 'Prensatelas y Accesorios',
+    titleEn: 'Presser Feet & Accessories',
+    subtitleEs: 'Neumáticos · Guías aéreas · Lámparas · Bandas',
+    subtitleEn: 'Pneumatic · Aerial Guides · Lamps · Belts',
+    descEs: 'Amplio surtido de prensatelas normales y neumáticos, guías aéreas, lámparas con magnético, láser posicionador y bandas.',
+    descEn: 'Wide assortment of standard and pneumatic presser feet, aerial guides, magnetic lamps, positioning lasers, and belts.',
+    color: '#ab6a42',
+    images: [
+      { src: '/images/Prensatelas, Guías Aéreas, Lámparas y Bandas/prensatela-p723.webp', alt: 'Prensatela industrial p723' },
+      { src: '/images/Prensatelas, Guías Aéreas, Lámparas y Bandas/prensatela-guia-2.webp', alt: 'Prensatela con guía' },
+      { src: '/images/Prensatelas, Guías Aéreas, Lámparas y Bandas/H83a34db6a4ad4292a5ed37569bfb0be9t.jpg', alt: 'Accesorios prensatelas industriales' },
+    ],
+    featured: false,
+  },
+  {
+    id: 'afiladores',
+    icon: '🔧',
+    titleEs: 'Afiladores de Tijeras y Piedras',
+    titleEn: 'Scissor Sharpeners & Stones',
+    subtitleEs: 'Wolff Industries Inc.',
+    subtitleEn: 'Wolff Industries Inc.',
+    descEs: 'Equipos de afilado profesional marca Wolff Industries Inc. — el estándar mundial para el mantenimiento de herramientas de corte.',
+    descEn: 'Wolff Industries Inc. professional sharpening equipment — the global standard for cutting tool maintenance.',
+    color: '#decbb7',
+    images: [
+      { src: '/images/Afilador de Tijeras y Piedras/81rZkENPf6S.jpg', alt: 'Afilador profesional Wolff Industries' },
+      { src: '/images/Afilador de Tijeras y Piedras/131938-Afilador-Trento-Easy-4-Tijeras-1024x1024.webp', alt: 'Afilador de tijeras Trento Easy' },
+      { src: '/images/Afilador de Tijeras y Piedras/afilador-cuchillos-tijeras-4-etapas-oryx.jpg', alt: 'Afilador 4 etapas para tijeras' },
+    ],
+    featured: false,
+  },
+  {
+    id: 'cordones',
+    icon: '🧲',
+    titleEs: 'Cordones Abrasivos y Lijas',
+    titleEn: 'Abrasive Cords & Sandpapers',
+    subtitleEs: 'Mitchell Abrasives',
+    subtitleEn: 'Mitchell Abrasives',
+    descEs: 'Hilo abrasivo y lijas de precisión marca Mitchell Abrasives — soluciones especializadas para acabados perfectos en textiles.',
+    descEn: 'Precision abrasive cords and sandpapers by Mitchell Abrasives — specialized solutions for perfect textile finishes.',
+    color: '#ab6a42',
+    images: [
+      { src: '/images/Cordones Abrasivos y Lijas — Mitchell Abrasives/hilo-de-lija-abrasivo-mitchell-s-51-15mm-15-mts.jpg', alt: 'Hilo de lija abrasivo Mitchell Abrasives' },
+      { src: '/images/Cordones Abrasivos y Lijas — Mitchell Abrasives/hilo-de-lija-abrasivo-mitchell-s-51-15mm-15-mts (1).jpg', alt: 'Cordón abrasivo Mitchell S-51' },
+      { src: '/images/Cordones Abrasivos y Lijas — Mitchell Abrasives/EM53_2_1024x1024.webp', alt: 'Abrasivo Mitchell para textil' },
+    ],
+    featured: false,
+  },
+  {
+    id: 'aceites',
+    icon: '🛢️',
+    titleEs: 'Aceites, Aceiteras y Guardas',
+    titleEn: 'Oils, Oilers & Shields',
+    subtitleEs: 'Lubricación · Acrílico · Accesorios',
+    subtitleEn: 'Lubrication · Acrylic · Accessories',
+    descEs: 'Aceites de alta calidad para maquinaria textil, aceiteras de precisión y guardas de acrílico para protección y visibilidad.',
+    descEn: 'High-quality oils for textile machinery, precision oilers, and acrylic shields for safety and visibility.',
+    color: '#decbb7',
+    images: [
+      { src: '/images/Aceites, Aceiteras y Guardas de Acrílico/556.jpg', alt: 'Aceite industrial para máquina de coser' },
+      { src: '/images/Aceites, Aceiteras y Guardas de Acrílico/aceite-industrial-maquina-coser-1-litro-aceitera.jpg', alt: 'Aceite lubricante 1 litro con aceitera' },
+      { src: '/images/Aceites, Aceiteras y Guardas de Acrílico/D_NQ_NP_829092-MLA90614078436_082025-O.webp', alt: 'Guarda de acrílico para maquinaria' },
+    ],
+    featured: false,
+  },
+  {
+    id: 'efka',
+    icon: '🛠️',
+    titleEs: 'Reparación y Mantenimiento EFKA',
+    titleEn: 'EFKA Repair & Maintenance',
+    subtitleEs: 'Servicio técnico certificado',
+    subtitleEn: 'Certified Technical Service',
+    descEs: 'Reparación especializada de equipos EFKA y suministro de tirantes para pedales EFKA nuevos originales.',
+    descEn: 'Specialized repair of EFKA equipment and supply of original new EFKA pedal drawbars.',
+    color: '#b23f2f',
+    images: [
+      { src: '/images/Reparación y Mantenimiento — Equipos EFKA/mecanico-cualificado-reparando-maquinas-coser-industriales-fabrica_449849-1077.avif', alt: 'Mecánico reparando máquinas industriales EFKA' },
+      { src: '/images/Reparación y Mantenimiento — Equipos EFKA/MOTOR-SERVO-EFKA-COMPLETO.jpg', alt: 'Motor servo EFKA completo' },
+      { src: '/images/Reparación y Mantenimiento — Equipos EFKA/ingeniero-motores-inspeccionando-maquinas-grandes-fabricatecnico-mantenimiento-motores-ferroviariosgerente-mecanico-reparacion-motores_44277-23885.avif', alt: 'Técnico inspeccionando motores EFKA' },
+    ],
+    featured: true,
+  },
+  {
+    id: 'carretes',
+    icon: '⚙️',
+    titleEs: 'Carretes, Bobinas y Navajas',
+    titleEn: 'Bobbins, Bobbin Cases & Knives',
+    subtitleEs: 'Juki · Dürkopp-Adler · Genéricos',
+    subtitleEn: 'Juki · Dürkopp-Adler · Generics',
+    descEs: 'Amplio stock de carretes, bobinas, navajas y contranavajas originales y genéricas para Juki, Dürkopp-Adler y más marcas.',
+    descEn: 'Large stock of bobbins, bobbin cases, knives, and counter-knives, both original and generic, for Juki, Dürkopp-Adler, and more.',
+    color: '#ab6a42',
+    images: [],
+    featured: false,
+  },
+];
+---
+
+<section id="productos" class="relative py-24 md:py-32 overflow-hidden"
+  style="background: linear-gradient(180deg, var(--iron-950) 0%, var(--iron-900) 50%, var(--iron-950) 100%);"
+  data-categories={JSON.stringify(categories)}>
+
+  <!-- Background blobs -->
+  <div class="mesh-bloom"
+    style="width:600px; height:600px; top:5%; right:-10%; background: radial-gradient(circle, rgba(178,63,47,0.06) 0%, transparent 70%);"></div>
+  <div class="mesh-bloom"
+    style="width:400px; height:400px; bottom:10%; left:-8%; background: radial-gradient(circle, rgba(140,82,48,0.08) 0%, transparent 70%);"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- ── Section Header ── -->
+    <div class="text-center mb-16 reveal">
+      <span class="section-label mb-5">
+        <TexasStar class="text-brick-red-light" size="w-4 h-4" />
+        <span data-es="Catálogo de Productos" data-en="Product Catalog">Catálogo de Productos</span>
+      </span>
+      <h2 class="section-title mt-4 mb-5"
+        data-es="Todo lo que tu industria<br/>necesita, en un solo lugar"
+        data-en="Everything your industry<br/>needs, in one place">
+        Todo lo que tu industria<br/>
+        <span class="gradient-text-gold">necesita, en un solo lugar</span>
+      </h2>
+      <p class="text-lg max-w-2xl mx-auto font-body" style="color: var(--steel-400);"
+        data-es="Material en stock para <strong style='color:var(--steel-100);'>entregas urgentes directas en planta</strong>. Representantes exclusivos de las mejores marcas mundiales."
+        data-en="Material in stock for <strong style='color:var(--steel-100);'>urgent direct plant deliveries</strong>. Exclusive representatives of the best global brands.">
+        Material en stock para <strong style="color:var(--steel-100);">entregas urgentes directas en planta</strong>.
+        Representantes exclusivos de las mejores marcas mundiales.
+      </p>
+    </div>
+
+    <!-- ── Products Masonry-style Grid ── -->
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+      {categories.map((cat, i) => (
+        <div
+          class={`product-gallery-card group relative overflow-hidden leather-card reveal cursor-pointer ${cat.featured ? 'md:col-span-2 xl:col-span-1' : ''}`}
+          style={`transition-delay: ${(i % 3) * 80}ms;`}
+          data-product-card
+          data-id={cat.id}
+        >
+          <!-- Grain texture overlay -->
+          <div class="grain-overlay"></div>
+
+          <!-- ── Image area ── -->
+          {cat.images.length > 0 ? (
+            <div class="relative overflow-hidden pointer-events-none" style="height: 220px;">
+              <!-- Main image (always visible) -->
+              <img
+                src={cat.images[0].src}
+                alt={cat.images[0].alt}
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                loading="lazy"
+                decoding="async"
+              />
+
+              <!-- Gradient overlay on image -->
+              <div class="absolute inset-0 transition-opacity duration-500"
+                style={`background: linear-gradient(to bottom, transparent 30%, var(--iron-900) 100%);`}></div>
+
+              <!-- Color accent glow on hover -->
+              <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                style={`background: linear-gradient(135deg, ${cat.color}15 0%, transparent 60%);`}></div>
+
+              <!-- Icon badge -->
+              <div class="absolute top-3 left-3 w-9 h-9 rounded-xl flex items-center justify-center text-lg z-10"
+                style={`background: ${cat.color}18; border: 1px solid ${cat.color}35; backdrop-filter: blur(8px);`}>
+                {cat.icon}
+              </div>
+            </div>
+          ) : (
+            <!-- No-image fallback: decorative icon panel -->
+            <div class="relative flex items-center justify-center overflow-hidden pointer-events-none" style="height: 220px; background: linear-gradient(135deg, var(--iron-900), var(--iron-800));">
+              <div class="absolute inset-0 opacity-10"
+                style={`background: radial-gradient(circle at center, ${cat.color} 0%, transparent 70%);`}></div>
+              <div class="text-7xl opacity-35 group-hover:opacity-55 group-hover:scale-110 transition-all duration-500">
+                {cat.icon}
+              </div>
+              <!-- Decorative rings -->
+              <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full opacity-10 animate-spin-slow"
+                style={`border: 2px dashed ${cat.color};`}></div>
+              <div class="absolute top-3 left-3 w-9 h-9 rounded-xl flex items-center justify-center text-lg z-10"
+                style={`background: ${cat.color}18; border: 1px solid ${cat.color}35;`}>
+                {cat.icon}
+              </div>
+            </div>
+          )}
+
+          <!-- ── Text Content ── -->
+          <div class="p-6 relative z-10">
+            <!-- Subtitle tag -->
+            <span class="text-xs font-bold tracking-[0.18em] uppercase px-2.5 py-1 rounded-full font-subtitle"
+              style={`background: ${cat.color}12; color: ${cat.color}; border: 1px solid ${cat.color}25;`}
+              data-es={cat.subtitleEs}
+              data-en={cat.subtitleEn}>
+              {cat.subtitleEs}
+            </span>
+
+            <!-- Title -->
+            <h3 class="text-xl font-bold mt-4 mb-2 transition-colors duration-300 group-hover:text-sand-light"
+              style="color: var(--steel-50); font-family: var(--font-title);"
+              data-es={cat.titleEs}
+              data-en={cat.titleEn}>
+              {cat.titleEs}
+            </h3>
+
+            <!-- Description -->
+            <p class="text-sm leading-relaxed font-body" style="color: var(--steel-400);"
+              data-es={cat.descEs}
+              data-en={cat.descEn}>
+              {cat.descEs}
+            </p>
+
+            <!-- Bottom Action Indicator -->
+            <div class="mt-5 flex items-center gap-1.5 text-xs font-bold tracking-widest uppercase font-subtitle" style={`color: ${cat.color};`}>
+              <span data-es="Ver detalles" data-en="View details">Ver detalles</span>
+              <svg class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Bottom CTA -->
+    <div class="text-center mt-14 reveal">
+      <p class="text-sm mb-5 font-body" style="color: var(--steel-400);"
+        data-es="¿No encuentras lo que buscas? Tenemos acceso a miles de referencias adicionales."
+        data-en="Can't find what you are looking for? We have access to thousands of additional references.">
+        ¿No encuentras lo que buscas? Tenemos acceso a miles de referencias adicionales.
+      </p>
+      <a href="https://wa.me/528441227872?text=Hola%2C%20busco%20un%20producto%20específico"
+        target="_blank" rel="noopener noreferrer"
+        class="btn-outline">
+        <span data-es="Consultar disponibilidad" data-en="Check availability">Consultar disponibilidad</span>
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- ── Detailed Product Modal ── -->
+  <div id="product-modal" class="fixed inset-0 z-[200] items-center justify-center hidden px-4"
+    style="background: rgba(10,9,9,0.94); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);">
+    
+    <!-- Modal Content Box -->
+    <div class="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto leather-card p-6 md:p-10 reveal-scale active" id="product-modal-content">
+      <div class="grain-overlay"></div>
+
+      <!-- Close Button -->
+      <button id="product-modal-close" class="absolute top-4 right-4 w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-200 z-50 bg-iron-950/80 border border-saddle-brown/30 text-steel-200 hover:bg-brick-red hover:text-white hover:border-brick-red cursor-pointer"
+        aria-label="Cerrar detalles">
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start relative z-10 text-left mt-4 md:mt-0">
+        
+        <!-- Left Column: Gallery -->
+        <div class="flex flex-col gap-4">
+          <!-- Featured Image Display -->
+          <div class="relative rounded-2xl overflow-hidden bg-iron-950 border border-saddle-brown/25 flex items-center justify-center" style="height: 280px; md:height: 340px;">
+            <img id="modal-featured-img" src="" alt="" class="w-full h-full object-cover transition-all duration-300" />
+            <div id="modal-no-img-placeholder" class="hidden flex-col items-center justify-center text-center p-6 w-full h-full">
+              <div id="modal-placeholder-icon" class="text-8xl opacity-25 mb-4 animate-pulse">⚙️</div>
+              <p class="text-xs tracking-widest uppercase font-subtitle text-steel-500" data-es="Muestrario de catálogo" data-en="Catalog Showcase">Muestrario de catálogo</p>
+            </div>
+          </div>
+          
+          <!-- Thumbnails Grid -->
+          <div id="modal-thumbs" class="flex gap-2.5 overflow-x-auto pb-1.5 select-none">
+            <!-- Populated dynamically via JS -->
+          </div>
+        </div>
+
+        <!-- Right Column: Details & Action Buttons -->
+        <div class="flex flex-col h-full justify-between">
+          <div>
+            <!-- Subtitle tag -->
+            <span id="modal-subtitle" class="text-xs font-bold tracking-[0.18em] uppercase px-3.5 py-1.5 rounded-full font-subtitle inline-block"
+              style="background: rgba(140,82,48,0.12); color: var(--sand-light); border: 1px solid rgba(140,82,48,0.25);">
+              SUBTITLE
+            </span>
+
+            <!-- Title -->
+            <h2 id="modal-title" class="text-3xl md:text-4xl font-bold mt-4 mb-4" style="font-family: var(--font-title); color: var(--steel-50);">
+              Product Title
+            </h2>
+
+            <!-- Divider -->
+            <div class="h-0.5 w-16 mb-5" style="background: var(--brick-red-light);"></div>
+
+            <!-- Description -->
+            <p id="modal-desc" class="text-sm md:text-base leading-relaxed font-body mb-6 text-steel-400">
+              Product Description
+            </p>
+          </div>
+
+          <!-- Action block -->
+          <div class="mt-4 pt-6 border-t border-saddle-brown/15">
+            <h4 class="text-xs font-bold uppercase tracking-wider font-subtitle text-sand mb-4"
+              data-es="¿Deseas cotizar o más información?" data-en="Do you want a quote or more info?">
+              ¿Deseas cotizar o más información?
+            </h4>
+            
+            <div class="flex flex-col sm:flex-row gap-3">
+              <!-- WhatsApp CTA -->
+              <a id="modal-whatsapp-btn" href="" target="_blank" rel="noopener noreferrer" 
+                class="btn-gold flex-1 text-center justify-center py-3.5 text-xs gap-2">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                </svg>
+                <span data-es="Preguntar por WhatsApp" data-en="Inquire via WhatsApp">Preguntar por WhatsApp</span>
+              </a>
+
+              <!-- Email CTA -->
+              <a id="modal-email-btn" href="" 
+                class="btn-outline flex-1 text-center justify-center py-3.5 text-xs gap-2">
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+                <span data-es="Enviar Correo" data-en="Send Email">Enviar Correo</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ── Card hover border glow ── */
+  .product-gallery-card {
+    transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
+  }
+  .product-gallery-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(140, 82, 48, 0.45) !important;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.85);
+  }
+
+  /* ── Product modal styles ── */
+  #product-modal.open {
+    display: flex;
+  }
+  
+  #product-modal-content {
+    animation: scaleIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+</style>
+
+<script>
+  // ── Scroll reveal ──
+  const revealEls = document.querySelectorAll('.reveal');
+  const revealObs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('active'); });
+  }, { threshold: 0.06 });
+  revealEls.forEach(el => revealObs.observe(el));
+
+  // ── 3D tilt on cards ──
+  document.querySelectorAll('[data-product-card]').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const ev = e as MouseEvent;
+      const rect = (card as HTMLElement).getBoundingClientRect();
+      const x = ev.clientX - rect.left;
+      const y = ev.clientY - rect.top;
+      const rx = (y - rect.height / 2) / 22;
+      const ry = (rect.width / 2 - x) / 22;
+      (card as HTMLElement).style.transform =
+        `perspective(1100px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-4px)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      (card as HTMLElement).style.transform = '';
+    });
+  });
+
+  // ── Load categories data from DOM ──
+  const productsSection = document.getElementById('productos');
+  const categoriesData = JSON.parse(productsSection?.getAttribute('data-categories') || '[]');
+
+  // ── Modal element selectors ──
+  const modal = document.getElementById('product-modal')!;
+  const modalTitle = document.getElementById('modal-title')!;
+  const modalSubtitle = document.getElementById('modal-subtitle')!;
+  const modalDesc = document.getElementById('modal-desc')!;
+  const modalFeaturedImg = document.getElementById('modal-featured-img') as HTMLImageElement;
+  const modalNoImgPlaceholder = document.getElementById('modal-no-img-placeholder')!;
+  const modalPlaceholderIcon = document.getElementById('modal-placeholder-icon')!;
+  const modalThumbs = document.getElementById('modal-thumbs')!;
+  const modalWhatsappBtn = document.getElementById('modal-whatsapp-btn') as HTMLAnchorElement;
+  const modalEmailBtn = document.getElementById('modal-email-btn') as HTMLAnchorElement;
+  const modalClose = document.getElementById('product-modal-close')!;
+
+  function openProductModal(product: any) {
+    const currentLang = localStorage.getItem('lang') || 'es';
+    
+    // Fill text fields with active language
+    const title = currentLang === 'es' ? product.titleEs : product.titleEn;
+    const subtitle = currentLang === 'es' ? product.subtitleEs : product.subtitleEn;
+    const desc = currentLang === 'es' ? product.descEs : product.descEn;
+
+    modalTitle.textContent = title;
+    modalSubtitle.textContent = subtitle;
+    modalDesc.textContent = desc;
+    
+    // Set WhatsApp link
+    const waMsg = currentLang === 'es' 
+      ? `Hola, me interesa solicitar cotización y más información sobre el producto: *${title}* (${subtitle})`
+      : `Hello, I am interested in requesting a quote and more information about the product: *${title}* (${subtitle})`;
+    modalWhatsappBtn.href = `https://wa.me/528441227872?text=${encodeURIComponent(waMsg)}`;
+    
+    // Set Email link
+    const emailSubject = currentLang === 'es' ? `Cotización - ${title}` : `Quote - ${title}`;
+    const emailBody = currentLang === 'es'
+      ? `Hola,\n\nMe interesa solicitar cotización y recibir más información técnica sobre el siguiente producto:\n\n* ${title} (${subtitle})\n\nSaludos.`
+      : `Hello,\n\nI'm interested in requesting a quote and receiving more technical information about the following product:\n\n* ${title} (${subtitle})\n\nBest regards.`;
+    
+    modalEmailBtn.href = `mailto:ventas@rusticironmexico.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+
+    // Fill gallery
+    modalThumbs.innerHTML = '';
+    
+    if (product.images && product.images.length > 0) {
+      modalFeaturedImg.src = product.images[0].src;
+      modalFeaturedImg.alt = product.images[0].alt;
+      modalFeaturedImg.classList.remove('hidden');
+      modalNoImgPlaceholder.classList.add('hidden');
+      
+      // Render thumbnails inside modal
+      product.images.forEach((img: any, idx: number) => {
+        const thumbDiv = document.createElement('div');
+        thumbDiv.className = `w-14 h-14 rounded-xl overflow-hidden border-2 cursor-pointer transition-all duration-200 flex-shrink-0 ${idx === 0 ? 'border-brick-red-light' : 'border-saddle-brown/25'}`;
+        thumbDiv.innerHTML = `<img src="${img.src}" alt="${img.alt}" class="w-full h-full object-cover" />`;
+        
+        thumbDiv.addEventListener('click', () => {
+          modalFeaturedImg.src = img.src;
+          modalFeaturedImg.alt = img.alt;
+          
+          modalThumbs.querySelectorAll('div').forEach(d => {
+            d.classList.remove('border-brick-red-light');
+            d.classList.add('border-saddle-brown/25');
+          });
+          thumbDiv.classList.remove('border-saddle-brown/25');
+          thumbDiv.classList.add('border-brick-red-light');
+        });
+        
+        modalThumbs.appendChild(thumbDiv);
+      });
+    } else {
+      modalFeaturedImg.classList.add('hidden');
+      modalNoImgPlaceholder.classList.remove('hidden');
+      modalPlaceholderIcon.textContent = product.icon;
+    }
+    
+    // Open modal
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeProductModal() {
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // ── Open modal on card click ──
+  document.querySelectorAll('[data-product-card]').forEach(card => {
+    card.addEventListener('click', () => {
+      const id = card.getAttribute('data-id');
+      const product = categoriesData.find((c: any) => c.id === id);
+      if (product) {
+        openProductModal(product);
+      }
+    });
+  });
+
+  // ── Close listeners ──
+  modalClose.addEventListener('click', closeProductModal);
+  modal.addEventListener('click', e => { if (e.target === modal) closeProductModal(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeProductModal(); });
+</script>

@@ -1,0 +1,97 @@
+---
+import '../styles/global.css';
+import FloatingWhatsApp from '../components/FloatingWhatsApp.astro';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Rustic Iron Mexico — Distribuidora de Insumos para la Industria Textil',
+  description = 'Empresa 100% mexicana especializada en comercialización y distribución de productos para la industria textil. Agujas, máquinas de coser, accesorios y más de marcas de renombre mundial.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="keywords" content="industria textil, agujas organ, máquinas de coser juki, insumos textiles, Saltillo, Coahuila, distribuidora textil México, Rustic Iron" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_MX" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Google Fonts: Playfair Display, Bebas Neue, Lora -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lora:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+    <!-- Language initialization script to prevent translation flashing -->
+    <script is:inline>
+      (function() {
+        const currentLang = localStorage.getItem('lang') || 'es';
+        document.documentElement.lang = currentLang;
+
+        const applyTranslations = () => {
+          const lang = localStorage.getItem('lang') || 'es';
+          document.documentElement.lang = lang;
+          
+          document.querySelectorAll('[data-es]').forEach(el => {
+            const txt = el.getAttribute(`data-${lang}`);
+            if (txt) {
+              if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                el.placeholder = txt;
+              } else {
+                el.innerHTML = txt;
+              }
+            }
+          });
+
+          // Update toggle labels
+          document.querySelectorAll('.lang-label').forEach(lbl => {
+            lbl.textContent = lang === 'es' ? 'EN' : 'ES';
+          });
+        };
+
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', applyTranslations);
+        } else {
+          applyTranslations();
+        }
+      })();
+    </script>
+
+    <title>{title}</title>
+  </head>
+  <body class="bg-iron-950 text-steel-200 overflow-x-hidden">
+    <slot />
+    <FloatingWhatsApp />
+  </body>
+</html>
+
+<style is:global>
+  html, body {
+    overflow-x: hidden;
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+</style>

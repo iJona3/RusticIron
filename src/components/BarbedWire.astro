@@ -1,0 +1,27 @@
+---
+// BarbedWire.astro — Repeating barbed wire divider SVG
+interface Props {
+  class?: string;
+}
+const { class: className = "text-saddle-brown/30" } = Astro.props;
+---
+<div class={`relative w-full h-8 overflow-hidden select-none pointer-events-none ${className}`}>
+  <svg viewBox="0 0 1200 32" width="100%" height="32" fill="none" class="w-full h-full" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <!-- Twisted wire strand 1 -->
+    <path d="M0 16 C 150 6, 300 26, 450 16 C 600 6, 750 26, 900 16 C 1050 6, 1200 26, 1350 16" stroke="currentColor" stroke-width="1.2" />
+    <!-- Twisted wire strand 2 -->
+    <path d="M-50 14 C 100 24, 250 4, 400 14 C 550 24, 700 4, 850 14 C 1000 24, 1150 4, 1300 14" stroke="currentColor" stroke-width="0.8" stroke-dasharray="12 6" opacity="0.75" />
+    
+    <!-- Spikes (Barbs) wrapping around the wires at intervals -->
+    <!-- We distribute them across the width -->
+    {[80, 230, 380, 530, 680, 830, 980, 1130].map((x) => (
+      <g>
+        {/* Main cross spikes */}
+        <path d={`M ${x-8} 8 L ${x+8} 24`} stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        <path d={`M ${x+8} 6 L ${x-8} 26`} stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        {/* Wrapping knot */}
+        <path d={`M ${x-3} 13 A 4 4 0 1 1 ${x+3} 19`} stroke="currentColor" stroke-width="1.2" fill="none"/>
+      </g>
+    ))}
+  </svg>
+</div>

@@ -1,0 +1,48 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import ClientsStrip from '../components/ClientsStrip.astro';
+import Products from '../components/Products.astro';
+import About from '../components/About.astro';
+import Differentiators from '../components/Differentiators.astro';
+import Clients from '../components/Clients.astro';
+import CTA from '../components/CTA.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="Rustic Iron Mexico — Distribuidora de Insumos para la Industria Textil"
+  description="Empresa 100% mexicana especializada en comercialización y distribución de productos para la industria textil. Agujas Organ, máquinas Juki, tijeras y más. Saltillo, Coahuila."
+>
+  <Navbar />
+  <main>
+    <Hero />
+    <ClientsStrip />
+    <Products />
+    <About />
+    <Differentiators />
+    <Clients />
+    <CTA />
+  </main>
+  <Footer />
+</Layout>
+
+<!-- Global Scroll Reveal Observer -->
+<script>
+  // Single global observer for all pages
+  const allRevealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+  const globalObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          // Optionally unobserve after reveal for performance
+          globalObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.06, rootMargin: '0px 0px -40px 0px' }
+  );
+  allRevealEls.forEach(el => globalObserver.observe(el));
+</script>

@@ -1,0 +1,407 @@
+@import "tailwindcss";
+
+/* ============================================
+   RUSTIC IRON MEXICO — Design System
+   Theme: Ranch & Heavy Industrial (Old West)
+   ============================================ */
+
+:root {
+  /* Iron Dark Base Palette */
+  --iron-950: #0a0909; /* Deep forge black */
+  --iron-900: #121010; /* Charcoal black */
+  --iron-850: #171515; /* Cast iron */
+  --iron-800: #211d1d; /* Burnished metal */
+  --iron-700: #302a2a; /* Raw iron */
+  --iron-600: #423b3b; /* Steel gray */
+
+  /* Cafe Silla (Saddle Leather) & Arena (Sand) */
+  --saddle-brown: #8c5230;
+  --saddle-brown-dark: #56301a;
+  --saddle-brown-light: #ab6a42;
+  --sand: #decbb7;
+  --sand-dark: #b8a38d;
+  --sand-light: #ebdccb;
+
+  /* Pergamino (Parchment) */
+  --parchment: #f5eedc;
+  --parchment-dark: #ebdcb6;
+  --parchment-light: #fbf8f0;
+
+  /* Rojo Ladrillo (Brick Red / Hot Forge Accent) */
+  --brick-red: #8f2d1e;
+  --brick-red-light: #b23f2f;
+  --brick-red-dark: #631d12;
+
+  /* Steel Text (for contrast readability) */
+  --steel-50:  #fcfbfa;
+  --steel-100: #f4f2f0;
+  --steel-200: #decbb7; /* sand */
+  --steel-300: #cbd5e1;
+  --steel-400: #9ca3af;
+  --steel-500: #6b7280;
+  --steel-600: #4b5563;
+
+  /* Glow colors */
+  --brick-glow: rgba(178, 63, 47, 0.18);
+  --saddle-glow: rgba(140, 82, 48, 0.15);
+  --sand-glow: rgba(222, 203, 183, 0.12);
+}
+
+@theme {
+  /* Brand Typography */
+  --font-title: "Playfair Display", serif;
+  --font-subtitle: "Bebas Neue", sans-serif;
+  --font-body: "Lora", serif;
+
+  /* Iron palette → Tailwind utilities */
+  --color-iron-950: var(--iron-950);
+  --color-iron-900: var(--iron-900);
+  --color-iron-850: var(--iron-850);
+  --color-iron-800: var(--iron-800);
+  --color-iron-700: var(--iron-700);
+  --color-iron-600: var(--color-iron-600);
+
+  /* Saddle palette → Tailwind utilities */
+  --color-saddle-brown: var(--saddle-brown);
+  --color-saddle-brown-dark: var(--saddle-brown-dark);
+  --color-saddle-brown-light: var(--saddle-brown-light);
+
+  /* Sand palette → Tailwind utilities */
+  --color-sand: var(--sand);
+  --color-sand-dark: var(--sand-dark);
+  --color-sand-light: var(--sand-light);
+
+  /* Parchment palette → Tailwind utilities */
+  --color-parchment: var(--parchment);
+  --color-parchment-dark: var(--parchment-dark);
+  --color-parchment-light: var(--parchment-light);
+
+  /* Brick palette → Tailwind utilities */
+  --color-brick-red: var(--brick-red);
+  --color-brick-red-light: var(--brick-red-light);
+  --color-brick-red-dark: var(--brick-red-dark);
+
+  /* Steel palette */
+  --color-steel-50:  var(--steel-50);
+  --color-steel-100: var(--steel-100);
+  --color-steel-200: var(--steel-200);
+  --color-steel-300: var(--steel-300);
+  --color-steel-400: var(--steel-400);
+  --color-steel-500: var(--steel-500);
+  --color-steel-600: var(--steel-600);
+}
+
+/* ============================================
+   BASE LAYER
+   ============================================ */
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html, body {
+    overflow-x: hidden;
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--iron-950);
+    color: var(--steel-200);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.7;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-title);
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--steel-50);
+  }
+
+  ::selection {
+    background: rgba(143, 45, 30, 0.4);
+    color: var(--steel-50);
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--iron-950);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--saddle-brown);
+    border: 2px solid var(--iron-950);
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--brick-red);
+  }
+}
+
+/* ============================================
+   COMPONENTS LAYER
+   ============================================ */
+@layer components {
+
+  /* --- Buttons --- */
+  .btn-gold {
+    @apply inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-bold text-sm tracking-widest transition-all duration-300 cursor-pointer uppercase;
+    background: linear-gradient(135deg, var(--brick-red-light), var(--brick-red));
+    color: var(--steel-50);
+    box-shadow: 0 4px 24px var(--brick-glow);
+    font-family: var(--font-subtitle);
+  }
+  .btn-gold:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(178, 63, 47, 0.45);
+    filter: brightness(1.1);
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-bold text-sm tracking-widest border transition-all duration-300 cursor-pointer uppercase;
+    border-color: rgba(222, 203, 183, 0.4);
+    color: var(--sand);
+    background: transparent;
+    font-family: var(--font-subtitle);
+  }
+  .btn-outline:hover {
+    background: rgba(222, 203, 183, 0.08);
+    border-color: var(--sand);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px var(--sand-glow);
+  }
+
+  /* --- Leather Card (Dark, Textured) --- */
+  .leather-card {
+    background: linear-gradient(145deg, #171515 0%, #0d0c0c 100%);
+    border: 1px solid rgba(140, 82, 48, 0.18);
+    box-shadow: 
+      inset 0 0 20px rgba(0, 0, 0, 0.75),
+      0 10px 30px rgba(0, 0, 0, 0.5);
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .glass-card {
+    @extend .leather-card;
+  }
+  
+  .glass-card-gold {
+    background: linear-gradient(145deg, rgba(140, 82, 48, 0.08) 0%, rgba(10, 9, 9, 0.4) 100%);
+    border: 1px solid rgba(140, 82, 48, 0.25);
+    box-shadow: 
+      inset 0 0 15px rgba(0,0,0,0.4),
+      0 8px 24px rgba(0,0,0,0.3);
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* --- Parchment Card (Light, High-contrast) --- */
+  .parchment-card {
+    background: linear-gradient(170deg, var(--parchment-light) 0%, var(--parchment) 100%);
+    border: 1px solid var(--parchment-dark);
+    box-shadow: 
+      0 4px 6px -1px rgba(0, 0, 0, 0.05),
+      0 10px 30px rgba(86, 48, 26, 0.06),
+      inset 0 0 30px rgba(86, 48, 26, 0.04);
+    border-radius: 16px;
+    color: #3d2b1f;
+  }
+
+  /* --- Section Label --- */
+  .section-label {
+    @apply inline-flex items-center gap-2 text-xs font-bold tracking-[0.25em] uppercase px-4.5 py-2 rounded-full;
+    background: rgba(143, 45, 30, 0.09);
+    border: 1px solid rgba(143, 45, 30, 0.25);
+    color: var(--brick-red-light);
+    font-family: var(--font-subtitle);
+  }
+
+  /* --- Section Title --- */
+  .section-title {
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold leading-tight;
+    font-family: var(--font-title);
+  }
+
+  /* --- Gradient Text Warm --- */
+  .gradient-text-gold {
+    background: linear-gradient(135deg, var(--sand-light), var(--saddle-brown-light), var(--brick-red-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* --- Divider Wave --- */
+  .divider-wave {
+    @apply w-full overflow-hidden;
+    line-height: 0;
+  }
+
+  /* --- Mesh Bloom --- */
+  .mesh-bloom {
+    @apply absolute rounded-full pointer-events-none;
+    filter: blur(90px);
+  }
+}
+
+/* ============================================
+   KEYFRAME ANIMATIONS
+   ============================================ */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-12px); }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%       { transform: translateY(-18px) rotate(3deg); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.15; transform: scale(1); }
+  50%       { opacity: 0.3;  transform: scale(1.1); }
+}
+
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes scroll-bounce {
+  0%, 100% { transform: translateY(0); opacity: 1; }
+  50%       { transform: translateY(8px); opacity: 0.4; }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.85); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ============================================
+   UTILITY ANIMATIONS
+   ============================================ */
+.animate-float        { animation: float 4s ease-in-out infinite; }
+.animate-float-slow   { animation: float-slow 6s ease-in-out infinite; }
+.animate-pulse-glow   { animation: pulse-glow 5s ease-in-out infinite; }
+.animate-marquee      { animation: marquee 30s linear infinite; }
+.animate-scroll-bounce{ animation: scroll-bounce 1.5s ease-in-out infinite; }
+.animate-spin-slow    { animation: spin-slow 20s linear infinite; }
+
+/* ============================================
+   SCROLL REVEAL SYSTEM
+   ============================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.9s cubic-bezier(0.19, 1, 0.22, 1),
+              transform 0.9s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.9s cubic-bezier(0.19, 1, 0.22, 1),
+              transform 0.9s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.reveal-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.9s cubic-bezier(0.19, 1, 0.22, 1),
+              transform 0.9s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.88);
+  transition: opacity 0.9s cubic-bezier(0.19, 1, 0.22, 1),
+              transform 0.9s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.reveal.active,
+.reveal-left.active,
+.reveal-right.active,
+.reveal-scale.active {
+  opacity: 1;
+  transform: translateY(0) translateX(0) scale(1);
+}
+
+/* ============================================
+   3D CARD PERSPECTIVE CONTAINER
+   ============================================ */
+.perspective-container {
+  perspective: 1200px;
+}
+
+/* ============================================
+   PRODUCT CARD 3D
+   ============================================ */
+.product-card {
+  transform-style: preserve-3d;
+  transform: perspective(1200px) rotateX(0deg) rotateY(0deg);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  will-change: transform;
+  cursor: default;
+}
+
+/* ============================================
+   MARQUEE PAUSE ON HOVER
+   ============================================ */
+.marquee-wrapper:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* ============================================
+   SECTION WAVE SEPARATORS
+   ============================================ */
+.wave-top {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  margin-bottom: -1px;
+}
+.wave-bottom {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  margin-top: -1px;
+}
+
+/* ============================================
+   TACTILE GRAIN OVERLAY
+   ============================================ */
+.grain-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}

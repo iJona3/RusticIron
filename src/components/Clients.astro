@@ -1,0 +1,347 @@
+---
+// Clients.astro — Embedded SVG logos (no external requests needed)
+// Logos recreated from brand reference image provided by client
+import TexasStar from './TexasStar.astro';
+
+const industryColors: Record<string, string> = {
+  'Automotriz':  'var(--sand-dark)',
+  'Textil':      'var(--saddle-brown-light)',
+  'Manufactura': 'var(--brick-red-light)',
+  'Industrial':  'var(--sand)',
+  'Plásticos':   'var(--saddle-brown-light)',
+  'Importación': 'var(--brick-red-light)',
+  'Seguridad':   'var(--sand-dark)',
+  'Muebles':     'var(--sand)',
+};
+
+const industryTranslations: Record<string, { es: string, en: string }> = {
+  'Automotriz':  { es: 'Automotriz',  en: 'Automotive' },
+  'Textil':      { es: 'Textil',      en: 'Textile' },
+  'Manufactura': { es: 'Manufactura', en: 'Manufacturing' },
+  'Industrial':  { es: 'Industrial',  en: 'Industrial' },
+  'Plásticos':   { es: 'Plásticos',   en: 'Plastics' },
+  'Importación': { es: 'Importación', en: 'Imports' },
+  'Seguridad':   { es: 'Seguridad',   en: 'Safety' },
+  'Muebles':     { es: 'Muebles',     en: 'Furniture' },
+};
+
+// Each logo is an inline SVG string based on actual brand identity
+const clients = [
+  {
+    name: 'Global Jeonjin Mexico',
+    industry: 'Automotriz',
+    svg: `<svg viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg">
+      <rect x="5" y="5" width="48" height="50" rx="6" fill="#cc2222"/>
+      <text x="29" y="20" font-family="Arial Black,sans-serif" font-size="11" font-weight="900" fill="white" text-anchor="middle">G</text>
+      <text x="29" y="36" font-family="Arial Black,sans-serif" font-size="11" font-weight="900" fill="white" text-anchor="middle">J</text>
+      <text x="29" y="52" font-family="Arial Black,sans-serif" font-size="11" font-weight="900" fill="white" text-anchor="middle">M</text>
+      <text x="80" y="28" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#cc2222" text-anchor="middle">GLOBAL</text>
+      <text x="80" y="40" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#cc2222" text-anchor="middle">JEONJIN</text>
+      <text x="80" y="52" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#cc2222" text-anchor="middle">MEXICO</text>
+    </svg>`,
+  },
+  {
+    name: 'CVG',
+    industry: 'Manufactura',
+    svg: `<svg viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg">
+      <text x="60" y="46" font-family="Arial Black,sans-serif" font-size="42" font-weight="900" fill="#1d4ed8" text-anchor="middle">CVG</text>
+    </svg>`,
+  },
+  {
+    name: 'Kolon Industries',
+    industry: 'Textil',
+    svg: `<svg viewBox="0 0 140 60" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="20,10 10,30 20,50 30,30" fill="#cc2222"/>
+      <polygon points="20,10 30,30 20,50 10,30" fill="#e04444"/>
+      <text x="80" y="28" font-family="Arial Black,sans-serif" font-size="16" font-weight="900" fill="#cc2222" text-anchor="middle">KOLON</text>
+      <text x="80" y="48" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#555" text-anchor="middle">INDUSTRIES</text>
+    </svg>`,
+  },
+  {
+    name: 'HNI',
+    industry: 'Manufactura',
+    svg: `<svg viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg">
+      <rect x="2" y="2" width="96" height="56" rx="4" fill="#cc2222"/>
+      <text x="50" y="43" font-family="Arial Black,sans-serif" font-size="34" font-weight="900" fill="white" text-anchor="middle">HNI</text>
+    </svg>`,
+  },
+  {
+    name: 'Faurecia',
+    industry: 'Automotriz',
+    svg: `<svg viewBox="0 0 130 60" xmlns="http://www.w3.org/2000/svg">
+      <rect x="0" y="0" width="130" height="60" rx="6" fill="#0033a0"/>
+      <text x="65" y="40" font-family="Arial,sans-serif" font-size="26" font-weight="700" fill="white" text-anchor="middle" letter-spacing="-0.5">faurecia</text>
+    </svg>`,
+  },
+  {
+    name: 'Novalink',
+    industry: 'Industrial',
+    svg: `<svg viewBox="0 0 160 60" xmlns="http://www.w3.org/2000/svg">
+      <text x="80" y="30" font-family="Arial Black,sans-serif" font-size="22" font-weight="900" fill="#111" text-anchor="middle">NOVA<tspan fill="#888888">LINK</tspan></text>
+      <text x="80" y="48" font-family="Arial,sans-serif" font-size="8" fill="#888" text-anchor="middle">THE NEAR SHORE MANUFACTURING SOLUTION</text>
+    </svg>`,
+  },
+  {
+    name: 'Vuteq Industries Mexico',
+    industry: 'Automotriz',
+    svg: `<svg viewBox="0 0 150 60" xmlns="http://www.w3.org/2000/svg">
+      <text x="75" y="36" font-family="Arial Black,sans-serif" font-size="28" font-weight="900" fill="#1e3a5f" text-anchor="middle" letter-spacing="1">VUTEQ</text>
+      <text x="75" y="52" font-family="Arial,sans-serif" font-size="9" fill="#888" text-anchor="middle">INDUSTRIES MEXICO</text>
+    </svg>`,
+  },
+  {
+    name: 'Tachi-S',
+    industry: 'Automotriz',
+    svg: `<svg viewBox="0 0 130 60" xmlns="http://www.w3.org/2000/svg">
+      <rect x="0" y="0" width="130" height="60" rx="4" fill="#1a1a1a"/>
+      <text x="22" y="42" font-family="serif" font-size="32" font-weight="900" fill="white">𝒯</text>
+      <text x="48" y="42" font-family="Arial Black,sans-serif" font-size="20" font-weight="900" fill="white">ACHI-S</text>
+    </svg>`,
+  },
+  {
+    name: 'Daimay Automotive',
+    industry: 'Automotriz',
+    svg: `<svg viewBox="0 0 140 60" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="24,8 8,52 40,52" fill="none" stroke="#1a1a1a" stroke-width="4"/>
+      <line x1="24" y1="8" x2="24" y2="52" stroke="#1a1a1a" stroke-width="4"/>
+      <text x="85" y="30" font-family="Arial Black,sans-serif" font-size="17" font-weight="900" fill="#1a1a1a" text-anchor="middle">DAIMAY</text>
+      <text x="85" y="48" font-family="Arial,sans-serif" font-size="9" fill="#666" text-anchor="middle">Automotive Interior</text>
+    </svg>`,
+  },
+  {
+    name: 'NYX México Plastics',
+    industry: 'Plásticos',
+    svg: `<svg viewBox="0 0 150 60" xmlns="http://www.w3.org/2000/svg">
+      <text x="8" y="44" font-family="Arial Black,sans-serif" font-size="38" font-weight="900" fill="#111">||NYX</text>
+      <line x1="90" y1="8" x2="140" y2="8" stroke="#111" stroke-width="3"/>
+      <line x1="90" y1="28" x2="140" y2="28" stroke="#111" stroke-width="3"/>
+      <text x="100" y="50" font-family="Arial,sans-serif" font-size="9" fill="#555">México Plastics</text>
+    </svg>`,
+  },
+  {
+    name: 'Outer Armor',
+    industry: 'Textil',
+    svg: `<svg viewBox="0 0 150 60" xmlns="http://www.w3.org/2000/svg">
+      <path d="M15,10 L28,4 L28,30 Q28,46 15,52 Q2,46 2,30 L2,4 Z" fill="#2a2a2a" stroke="#555" stroke-width="1"/>
+      <text x="16" y="34" font-family="Arial Black,sans-serif" font-size="9" font-weight="900" fill="white" text-anchor="middle">OA</text>
+      <text x="90" y="26" font-family="Arial Black,sans-serif" font-size="15" font-weight="900" fill="#1a1a1a" text-anchor="middle">OUTER</text>
+      <text x="90" y="44" font-family="Arial Black,sans-serif" font-size="15" font-weight="900" fill="#1a1a1a" text-anchor="middle">ARMOR</text>
+    </svg>`,
+  },
+  {
+    name: 'Blinds To Go',
+    industry: 'Textil',
+    svg: `<svg viewBox="0 0 140 60" xmlns="http://www.w3.org/2000/svg">
+      <rect x="2" y="2" width="136" height="56" rx="4" fill="none" stroke="#cc2222" stroke-width="3"/>
+      <text x="70" y="26" font-family="serif" font-size="13" font-weight="700" fill="#cc2222" text-anchor="middle">Blinds</text>
+      <text x="70" y="42" font-family="serif" font-size="13" font-weight="700" fill="#cc2222" text-anchor="middle">To Go</text>
+      <text x="70" y="54" font-family="Arial,sans-serif" font-size="6" fill="#888" text-anchor="middle">HECHO A MANO DESDE 1954</text>
+    </svg>`,
+  },
+  {
+    name: 'ErsaFlex',
+    industry: 'Industrial',
+    svg: `<svg viewBox="0 0 130 60" xmlns="http://www.w3.org/2000/svg">
+      <text x="65" y="42" font-family="Arial,sans-serif" font-size="30" font-weight="700" fill="#333" text-anchor="middle">
+        <tspan font-weight="900">Ersa</tspan><tspan fill="#666">Flex</tspan>
+      </text>
+    </svg>`,
+  },
+  {
+    name: 'Entrada Group',
+    industry: 'Manufactura',
+    svg: `<svg viewBox="0 0 140 60" xmlns="http://www.w3.org/2000/svg">
+      <text x="70" y="32" font-family="Georgia,serif" font-size="22" font-weight="700" fill="#92400e" text-anchor="middle">Entrada</text>
+      <text x="70" y="52" font-family="Georgia,serif" font-size="20" font-weight="400" fill="#b45309" text-anchor="middle" font-style="italic">Group</text>
+    </svg>`,
+  },
+  {
+    name: 'Grupo Antolín',
+    industry: 'Automotriz',
+    svg: `<svg viewBox="0 0 140 60" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20,30 Q20,8 32,8 Q44,8 44,20 Q44,30 32,36 L44,52" fill="none" stroke="#1d4ed8" stroke-width="5" stroke-linecap="round"/>
+      <text x="95" y="28" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#1d4ed8" text-anchor="middle">GRUPO</text>
+      <text x="95" y="46" font-family="Arial Black,sans-serif" font-size="16" font-weight="900" fill="#1d4ed8" text-anchor="middle">ANTOLÍN</text>
+    </svg>`,
+  },
+  {
+    name: 'SK SeatKing',
+    industry: 'Automotriz',
+    svg: `<svg viewBox="0 0 140 60" xmlns="http://www.w3.org/2000/svg">
+      <rect x="2" y="8" width="42" height="44" rx="4" fill="#065f46"/>
+      <text x="23" y="38" font-family="Arial Black,sans-serif" font-size="20" font-weight="900" fill="white" text-anchor="middle">SK</text>
+      <text x="95" y="30" font-family="Arial Black,sans-serif" font-size="18" font-weight="900" fill="#111" text-anchor="middle">Seat</text>
+      <text x="95" y="50" font-family="Arial Black,sans-serif" font-size="18" font-weight="900" fill="#065f46" text-anchor="middle">King</text>
+    </svg>`,
+  },
+  {
+    name: 'Tetakawi',
+    industry: 'Industrial',
+    svg: `<svg viewBox="0 0 130 60" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="20,48 8,48 14,20" fill="#0e7490" opacity="0.8"/>
+      <polygon points="28,48 20,48 24,28" fill="#0891b2"/>
+      <polygon points="36,48 28,48 32,12" fill="#06b6d4"/>
+      <text x="90" y="40" font-family="Arial,sans-serif" font-size="20" font-weight="300" fill="#0e7490" text-anchor="middle" letter-spacing="1">tetakawi</text>
+    </svg>`,
+  },
+  {
+    name: 'Imp. Dinámicas',
+    industry: 'Importación',
+    svg: `<svg viewBox="0 0 150 60" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="24" cy="30" r="20" fill="none" stroke="#1d4ed8" stroke-width="2"/>
+      <ellipse cx="24" cy="30" rx="10" ry="20" fill="none" stroke="#1d4ed8" stroke-width="1.5"/>
+      <line x1="4" y1="30" x2="44" y2="30" stroke="#1d4ed8" stroke-width="1.5"/>
+      <text x="97" y="26" font-family="Arial Black,sans-serif" font-size="11" font-weight="900" fill="#1d4ed8" text-anchor="middle">IMPORTACIONES</text>
+      <text x="97" y="44" font-family="Arial Black,sans-serif" font-size="11" font-weight="900" fill="#1d4ed8" text-anchor="middle">DINÁMICAS</text>
+    </svg>`,
+  },
+  {
+    name: 'Yanfeng Automotive',
+    industry: 'Automotriz',
+    svg: `<svg viewBox="0 0 160 60" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12,10 L22,10 L28,25 L34,10 L44,10 L32,36 L32,52 L24,52 L24,36 Z" fill="#1d4ed8"/>
+      <text x="102" y="28" font-family="Arial,sans-serif" font-size="20" font-weight="700" fill="#1d4ed8" text-anchor="middle">Yanfeng</text>
+      <text x="102" y="46" font-family="Arial,sans-serif" font-size="8" fill="#64748b" text-anchor="middle">Global Automotive Interiors</text>
+    </svg>`,
+  },
+  {
+    name: 'IMMI',
+    industry: 'Seguridad',
+    svg: `<svg viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg">
+      <rect x="5" y="5" width="90" height="50" rx="8" fill="#1d4ed8"/>
+      <text x="50" y="43" font-family="Arial Black,sans-serif" font-size="30" font-weight="900" fill="white" text-anchor="middle">IMMI</text>
+    </svg>`,
+  },
+  {
+    name: 'Palliser',
+    industry: 'Muebles',
+    svg: `<svg viewBox="0 0 140 60" xmlns="http://www.w3.org/2000/svg">
+      <text x="70" y="44" font-family="Arial Black,sans-serif" font-size="30" font-weight="900" fill="#cc2222" text-anchor="middle" letter-spacing="1">PALLISER</text>
+      <text x="70" y="56" font-family="Arial,sans-serif" font-size="8" fill="#cc2222" text-anchor="middle">®</text>
+    </svg>`,
+  },
+];
+---
+
+<section id="clientes" class="relative py-24 md:py-32 overflow-hidden"
+  style="background: linear-gradient(180deg, var(--iron-950) 0%, var(--iron-900) 100%);">
+
+  <div class="mesh-bloom"
+    style="width:600px;height:600px;bottom:-10%;left:-10%;background:radial-gradient(circle,rgba(140,82,48,0.08) 0%,transparent 70%);"></div>
+  <div class="mesh-bloom"
+    style="width:400px;height:400px;top:10%;right:-8%;background:radial-gradient(circle,rgba(178,63,47,0.06) 0%,transparent 70%);"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- ── Header ── -->
+    <div class="text-center mb-16 reveal">
+      <span class="section-label mb-5">
+        <TexasStar class="text-brick-red-light" size="w-4 h-4" />
+        <span data-es="Clientes Destacados" data-en="Featured Clients">Clientes Destacados</span>
+      </span>
+      <h2 class="section-title mt-4 mb-5"
+        data-es="Confían en nosotros<br/><span class='gradient-text-gold'>líderes de la industria</span>"
+        data-en="Trusted by<br/><span class='gradient-text-gold'>industry leaders</span>">
+        Confían en nosotros<br/>
+        <span class="gradient-text-gold">líderes de la industria</span>
+      </h2>
+      <p class="text-lg max-w-2xl mx-auto font-body" style="color:var(--steel-400);"
+        data-es="Más de <strong style='color:var(--steel-100);'>21 empresas de nivel mundial</strong> nos eligen como su proveedor preferente de insumos textiles industriales."
+        data-en="More than <strong style='color:var(--steel-100);'>21 world-class companies</strong> choose us as their preferred supplier of industrial textile supplies.">
+        Más de <strong style="color:var(--steel-100);">21 empresas de nivel mundial</strong> nos eligen como
+        su proveedor preferente de insumos textiles industriales.
+      </p>
+    </div>
+
+    <!-- ── Logo Grid ── -->
+    <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 gap-3 md:gap-4">
+      {clients.map((client, i) => {
+        const industryColor = industryColors[client.industry] || 'var(--brick-red-light)';
+        return (
+          <div
+            class="client-logo-card group relative flex flex-col items-center justify-between gap-3 p-4 rounded-2xl leather-card reveal"
+            style={`
+              transition-delay:${(i % 7) * 40}ms;
+              min-height: 125px;
+            `}
+          >
+            <!-- Grain texture overlay -->
+            <div class="grain-overlay"></div>
+
+            <!-- SVG Logo area -->
+            <div class="w-full flex items-center justify-center transition-all duration-400 group-hover:scale-105"
+              style="height: 52px;"
+              set:html={client.svg}
+            />
+
+            <!-- Client name -->
+            <p class="text-center text-xs font-semibold leading-tight w-full mt-1" style="color: var(--steel-100); font-family: system-ui, -apple-system, sans-serif;">
+              {client.name}
+            </p>
+
+            <!-- Industry tag -->
+            <span class="text-[9px] font-bold tracking-wider uppercase px-2.5 py-1 rounded-full font-subtitle"
+              style={`background:${industryColor}12; color:${industryColor}; border:1px solid ${industryColor}25;`}
+              data-es={industryTranslations[client.industry]?.es || client.industry}
+              data-en={industryTranslations[client.industry]?.en || client.industry}>
+              {industryTranslations[client.industry]?.es || client.industry}
+            </span>
+
+            <!-- Hover border glow -->
+            <div class="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none"
+              style="box-shadow: inset 0 0 0 1px rgba(140,82,48,0.35), 0 8px 30px rgba(140,82,48,0.1);"></div>
+          </div>
+        );
+      })}
+    </div>
+
+    <!-- ── Summary Stats ── -->
+    <div class="flex flex-wrap justify-center gap-8 md:gap-16 mt-14 reveal">
+      {[
+        { num: '21+', labelEs: 'Empresas atendidas', labelEn: 'Companies served' },
+        { num: '100%', labelEs: 'Empresa mexicana', labelEn: 'Mexican company' },
+        { num: '10+', labelEs: 'Años de experiencia', labelEn: 'Years of experience' },
+        { num: '∞',   labelEs: 'Stock disponible', labelEn: 'Available stock' },
+      ].map(s => (
+        <div class="text-center">
+          <p class="text-2xl md:text-3xl font-bold font-title" style="color:var(--brick-red-light);">{s.num}</p>
+          <p class="text-xs tracking-widest uppercase mt-1 font-subtitle" style="color:var(--sand-dark);"
+            data-es={s.labelEs} data-en={s.labelEn}>{s.labelEs}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  /* SVG logos: silhouetted white by default, color on hover */
+  .client-logo-card svg {
+    width: 100%;
+    height: 100%;
+    max-height: 52px;
+    filter: brightness(0) invert(1) opacity(0.45);
+    transition: filter 0.35s ease, opacity 0.35s ease;
+  }
+  .client-logo-card:hover svg {
+    filter: none;
+    opacity: 1;
+  }
+  .client-logo-card {
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+                border-color 0.35s ease,
+                background 0.35s ease;
+  }
+  .client-logo-card:hover {
+    transform: translateY(-5px) scale(1.04);
+    background: linear-gradient(145deg, #1f1b1b, #121010) !important;
+    border-color: rgba(140,82,48,0.45) !important;
+  }
+</style>
+
+<script>
+  const revealEls = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('active'); });
+  }, { threshold: 0.05 });
+  revealEls.forEach(el => obs.observe(el));
+</script>

@@ -1,0 +1,147 @@
+---
+// ClientsStrip.astro — Double-row infinite marquee with embedded SVG logos
+import BarbedWire from './BarbedWire.astro';
+
+const allClients = [
+  { name: 'Global Jeonjin Mexico', color: '#cc2222',
+    svg: `<svg viewBox="0 0 80 36" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="28" height="34" rx="4" fill="#cc2222"/><text x="15" y="12" font-family="Arial Black,sans-serif" font-size="7" font-weight="900" fill="white" text-anchor="middle">G</text><text x="15" y="21" font-family="Arial Black,sans-serif" font-size="7" font-weight="900" fill="white" text-anchor="middle">J</text><text x="15" y="30" font-family="Arial Black,sans-serif" font-size="7" font-weight="900" fill="white" text-anchor="middle">M</text><text x="56" y="18" font-family="Arial,sans-serif" font-size="6" font-weight="700" fill="#cc2222" text-anchor="middle">GLOBAL</text><text x="56" y="26" font-family="Arial,sans-serif" font-size="6" font-weight="700" fill="#cc2222" text-anchor="middle">JEONJIN</text></svg>` },
+  { name: 'CVG', color: '#1d4ed8',
+    svg: `<svg viewBox="0 0 80 36" xmlns="http://www.w3.org/2000/svg"><text x="40" y="28" font-family="Arial Black,sans-serif" font-size="26" font-weight="900" fill="#1d4ed8" text-anchor="middle">CVG</text></svg>` },
+  { name: 'Kolon Industries', color: '#cc2222',
+    svg: `<svg viewBox="0 0 110 36" xmlns="http://www.w3.org/2000/svg"><polygon points="14,4 8,18 14,32 20,18" fill="#cc2222"/><text x="65" y="18" font-family="Arial Black,sans-serif" font-size="10" font-weight="900" fill="#cc2222" text-anchor="middle">KOLON</text><text x="65" y="30" font-family="Arial,sans-serif" font-size="7" fill="#555" text-anchor="middle">INDUSTRIES</text></svg>` },
+  { name: 'HNI', color: '#cc2222',
+    svg: `<svg viewBox="0 0 80 36" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="78" height="34" rx="3" fill="#cc2222"/><text x="40" y="26" font-family="Arial Black,sans-serif" font-size="20" font-weight="900" fill="white" text-anchor="middle">HNI</text></svg>` },
+  { name: 'Faurecia', color: '#0033a0',
+    svg: `<svg viewBox="0 0 100 36" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="100" height="36" rx="4" fill="#0033a0"/><text x="50" y="25" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="white" text-anchor="middle">faurecia</text></svg>` },
+  { name: 'Novalink', color: '#111827',
+    svg: `<svg viewBox="0 0 110 36" xmlns="http://www.w3.org/2000/svg"><text x="55" y="24" font-family="Arial Black,sans-serif" font-size="14" font-weight="900" fill="#111" text-anchor="middle">NOVA<tspan fill="#888">LINK</tspan></text></svg>` },
+  { name: 'Vuteq Industries', color: '#1e3a5f',
+    svg: `<svg viewBox="0 0 110 36" xmlns="http://www.w3.org/2000/svg"><text x="55" y="24" font-family="Arial Black,sans-serif" font-size="16" font-weight="900" fill="#1e3a5f" text-anchor="middle" letter-spacing="1">VUTEQ</text></svg>` },
+  { name: 'Tachi-S', color: '#1a1a1a',
+    svg: `<svg viewBox="0 0 100 36" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="100" height="36" rx="3" fill="#1a1a1a"/><text x="50" y="25" font-family="Arial Black,sans-serif" font-size="14" font-weight="900" fill="white" text-anchor="middle">TACHI-S</text></svg>` },
+  { name: 'Daimay Automotive', color: '#1a1a1a',
+    svg: `<svg viewBox="0 0 110 36" xmlns="http://www.w3.org/2000/svg"><polygon points="14,2 4,34 24,34" fill="none" stroke="#1a1a1a" stroke-width="3"/><line x1="14" y1="2" x2="14" y2="34" stroke="#1a1a1a" stroke-width="3"/><text x="65" y="22" font-family="Arial Black,sans-serif" font-size="11" font-weight="900" fill="#1a1a1a" text-anchor="middle">DAIMAY</text></svg>` },
+  { name: 'NYX México Plastics', color: '#111827',
+    svg: `<svg viewBox="0 0 110 36" xmlns="http://www.w3.org/2000/svg"><text x="8" y="28" font-family="Arial Black,sans-serif" font-size="24" font-weight="900" fill="#111">||NYX</text></svg>` },
+  { name: 'Outer Armor', color: '#2a2a2a',
+    svg: `<svg viewBox="0 0 110 36" xmlns="http://www.w3.org/2000/svg"><path d="M10,4 L20,0 L20,20 Q20,32 10,36 Q0,32 0,20 L0,0 Z" fill="#2a2a2a" transform="scale(0.7) translate(4,0)"/><text x="70" y="16" font-family="Arial Black,sans-serif" font-size="9" font-weight="900" fill="#1a1a1a" text-anchor="middle">OUTER</text><text x="70" y="28" font-family="Arial Black,sans-serif" font-size="9" font-weight="900" fill="#1a1a1a" text-anchor="middle">ARMOR</text></svg>` },
+  { name: 'Blinds To Go', color: '#cc2222',
+    svg: `<svg viewBox="0 0 100 36" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="98" height="34" rx="3" fill="none" stroke="#cc2222" stroke-width="2"/><text x="50" y="16" font-family="serif" font-size="9" font-weight="700" fill="#cc2222" text-anchor="middle">Blinds To Go</text><text x="50" y="28" font-family="Arial,sans-serif" font-size="6" fill="#888" text-anchor="middle">HECHO A MANO DESDE 1954</text></svg>` },
+  { name: 'ErsaFlex', color: '#333',
+    svg: `<svg viewBox="0 0 100 36" xmlns="http://www.w3.org/2000/svg"><text x="50" y="26" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#333" text-anchor="middle"><tspan font-weight="900">Ersa</tspan><tspan fill="#666">Flex</tspan></text></svg>` },
+  { name: 'Entrada Group', color: '#92400e',
+    svg: `<svg viewBox="0 0 110 36" xmlns="http://www.w3.org/2000/svg"><text x="55" y="20" font-family="Georgia,serif" font-size="13" font-weight="700" fill="#92400e" text-anchor="middle">Entrada</text><text x="55" y="34" font-family="Georgia,serif" font-size="12" fill="#b45309" text-anchor="middle" font-style="italic">Group</text></svg>` },
+  { name: 'Grupo Antolín', color: '#1d4ed8',
+    svg: `<svg viewBox="0 0 110 36" xmlns="http://www.w3.org/2000/svg"><path d="M12,18 Q12,4 20,4 Q28,4 28,12 Q28,18 20,22 L28,32" fill="none" stroke="#1d4ed8" stroke-width="3" stroke-linecap="round"/><text x="72" y="17" font-family="Arial,sans-serif" font-size="7" font-weight="700" fill="#1d4ed8" text-anchor="middle">GRUPO</text><text x="72" y="29" font-family="Arial Black,sans-serif" font-size="10" font-weight="900" fill="#1d4ed8" text-anchor="middle">ANTOLÍN</text></svg>` },
+  { name: 'SK SeatKing', color: '#065f46',
+    svg: `<svg viewBox="0 0 110 36" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="4" width="28" height="28" rx="3" fill="#065f46"/><text x="15" y="23" font-family="Arial Black,sans-serif" font-size="13" font-weight="900" fill="white" text-anchor="middle">SK</text><text x="72" y="18" font-family="Arial Black,sans-serif" font-size="11" font-weight="900" fill="#111" text-anchor="middle">Seat</text><text x="72" y="32" font-family="Arial Black,sans-serif" font-size="11" font-weight="900" fill="#065f46" text-anchor="middle">King</text></svg>` },
+  { name: 'Tetakawi', color: '#0e7490',
+    svg: `<svg viewBox="0 0 110 36" xmlns="http://www.w3.org/2000/svg"><polygon points="12,30 4,30 8,12" fill="#0e7490" opacity="0.8"/><polygon points="18,30 12,30 15,18" fill="#0891b2"/><polygon points="24,30 18,30 21,6" fill="#06b6d4"/><text x="68" y="26" font-family="Arial,sans-serif" font-size="14" font-weight="300" fill="#0e7490" text-anchor="middle" letter-spacing="1">tetakawi</text></svg>` },
+  { name: 'Imp. Dinámicas', color: '#1d4ed8',
+    svg: `<svg viewBox="0 0 110 36" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="18" r="12" fill="none" stroke="#1d4ed8" stroke-width="1.5"/><ellipse cx="14" cy="18" rx="6" ry="12" fill="none" stroke="#1d4ed8" stroke-width="1"/><line x1="2" y1="18" x2="26" y2="18" stroke="#1d4ed8" stroke-width="1"/><text x="68" y="16" font-family="Arial Black,sans-serif" font-size="7" font-weight="900" fill="#1d4ed8" text-anchor="middle">IMPORTACIONES</text><text x="68" y="28" font-family="Arial Black,sans-serif" font-size="7" font-weight="900" fill="#1d4ed8" text-anchor="middle">DINÁMICAS</text></svg>` },
+  { name: 'Yanfeng Automotive', color: '#1d4ed8',
+    svg: `<svg viewBox="0 0 120 36" xmlns="http://www.w3.org/2000/svg"><path d="M6,6 L12,6 L16,16 L20,6 L26,6 L19,22 L19,32 L13,32 L13,22 Z" fill="#1d4ed8"/><text x="74" y="19" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#1d4ed8" text-anchor="middle">Yanfeng</text><text x="74" y="31" font-family="Arial,sans-serif" font-size="6" fill="#64748b" text-anchor="middle">Automotive Interiors</text></svg>` },
+  { name: 'IMMI', color: '#1d4ed8',
+    svg: `<svg viewBox="0 0 80 36" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="76" height="32" rx="6" fill="#1d4ed8"/><text x="40" y="25" font-family="Arial Black,sans-serif" font-size="18" font-weight="900" fill="white" text-anchor="middle">IMMI</text></svg>` },
+  { name: 'Palliser', color: '#cc2222',
+    svg: `<svg viewBox="0 0 110 36" xmlns="http://www.w3.org/2000/svg"><text x="55" y="26" font-family="Arial Black,sans-serif" font-size="18" font-weight="900" fill="#cc2222" text-anchor="middle" letter-spacing="1">PALLISER</text></svg>` },
+];
+
+// Split into two rows
+const row1 = allClients.slice(0, 11);
+const row2 = allClients.slice(11);
+---
+
+<div class="relative z-10 px-4" style="margin-top: -40px;">
+  <div class="max-w-7xl mx-auto">
+    <div class="relative rounded-2xl py-6 px-5 overflow-hidden marquee-wrapper"
+      style="background:rgba(18,16,16,0.92); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); border:1px solid rgba(140,82,48,0.25); box-shadow:0 20px 60px rgba(0,0,0,0.65);">
+
+      <!-- Grain overlay -->
+      <div class="grain-overlay"></div>
+
+      <!-- Top fence barbed wire -->
+      <BarbedWire class="text-saddle-brown/20 -mt-2 mb-2" />
+
+      <!-- Label -->
+      <div class="flex items-center gap-4 mb-5">
+        <div class="h-px flex-1" style="background:linear-gradient(90deg,transparent,rgba(140,82,48,0.4),transparent);"></div>
+        <p class="text-xs font-bold tracking-[0.25em] uppercase whitespace-nowrap font-subtitle" style="color:var(--sand);"
+          data-es="Empresas que confían en nosotros" data-en="Companies that trust us">
+          Empresas que confían en nosotros
+        </p>
+        <div class="h-px flex-1" style="background:linear-gradient(90deg,transparent,rgba(140,82,48,0.4),transparent);"></div>
+      </div>
+
+      <!-- ROW 1 → left to right -->
+      <div class="relative overflow-hidden mb-4">
+        <div class="absolute left-0 top-0 bottom-0 w-16 z-10 pointer-events-none"
+          style="background:linear-gradient(to right,#121010,transparent);"></div>
+        <div class="absolute right-0 top-0 bottom-0 w-16 z-10 pointer-events-none"
+          style="background:linear-gradient(to left,#121010,transparent);"></div>
+
+        <div class="flex gap-4 w-max items-center strip-marquee-r1">
+          {[...row1, ...row1].map((c) => (
+            <div class="strip-card flex items-center gap-2.5 flex-shrink-0 px-3.5 py-2.5 rounded-xl"
+              style="background:rgba(255,255,255,0.02); border:1px solid rgba(140,82,48,0.12);">
+              <div class="flex-shrink-0" style="width:70px;height:32px;" set:html={c.svg} />
+              <span class="text-xs font-semibold whitespace-nowrap tracking-wide" style="color: var(--steel-100); font-family: system-ui, -apple-system, sans-serif;">{c.name}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- ROW 2 → right to left -->
+      <div class="relative overflow-hidden mb-2">
+        <div class="absolute left-0 top-0 bottom-0 w-16 z-10 pointer-events-none"
+          style="background:linear-gradient(to right,#121010,transparent);"></div>
+        <div class="absolute right-0 top-0 bottom-0 w-16 z-10 pointer-events-none"
+          style="background:linear-gradient(to left,#121010,transparent);"></div>
+
+        <div class="flex gap-4 w-max items-center strip-marquee-r2">
+          {[...row2, ...row2].map((c) => (
+            <div class="strip-card flex items-center gap-2.5 flex-shrink-0 px-3.5 py-2.5 rounded-xl"
+              style="background:rgba(255,255,255,0.02); border:1px solid rgba(140,82,48,0.12);">
+              <div class="flex-shrink-0" style="width:70px;height:32px;" set:html={c.svg} />
+              <span class="text-xs font-semibold whitespace-nowrap tracking-wide" style="color: var(--steel-100); font-family: system-ui, -apple-system, sans-serif;">{c.name}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Bottom fence barbed wire -->
+      <BarbedWire class="text-saddle-brown/20 mt-4 -mb-2" />
+      
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Strip card logos — silhouetted white by default, color on hover */
+  .strip-card svg {
+    width: 100%;
+    height: 100%;
+    filter: brightness(0) invert(1) opacity(0.45);
+    transition: filter 0.3s ease, opacity 0.3s ease;
+  }
+  .strip-card:hover svg {
+    filter: none;
+    opacity: 1;
+  }
+
+  /* Row 1: left → right */
+  .strip-marquee-r1 { animation: marquee 38s linear infinite; }
+  /* Row 2: right → left */
+  .strip-marquee-r2 { animation: marquee-rev 30s linear infinite; }
+
+  @keyframes marquee-rev {
+    0%   { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+  }
+
+  /* Pause both rows on hover of the wrapper */
+  .marquee-wrapper:hover .strip-marquee-r1,
+  .marquee-wrapper:hover .strip-marquee-r2 {
+    animation-play-state: paused;
+  }
+</style>
