@@ -45,17 +45,21 @@ const allClients = [
     svg: `<svg viewBox="0 0 80 36" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="76" height="32" rx="6" fill="#1d4ed8"/><text x="40" y="25" font-family="Arial Black,sans-serif" font-size="18" font-weight="900" fill="white" text-anchor="middle">IMMI</text></svg>` },
   { name: 'Palliser', color: '#cc2222',
     svg: `<svg viewBox="0 0 110 36" xmlns="http://www.w3.org/2000/svg"><text x="55" y="26" font-family="Arial Black,sans-serif" font-size="18" font-weight="900" fill="#cc2222" text-anchor="middle" letter-spacing="1">PALLISER</text></svg>` },
+  { name: 'Solutecma', color: '#cc2222',
+    svg: `<svg viewBox="0 0 110 36" xmlns="http://www.w3.org/2000/svg"><polygon points="12,14 22,9 32,14 32,24 22,29 12,24" fill="#cc2222"/><line x1="22" y1="9" x2="22" y2="29" stroke="white" stroke-width="1"/><line x1="12" y1="14" x2="32" y2="14" stroke="white" stroke-width="1"/><line x1="22" y1="19" x2="32" y2="14" stroke="white" stroke-width="1"/><line x1="22" y1="19" x2="12" y2="14" stroke="white" stroke-width="1"/><line x1="22" y1="19" x2="22" y2="29" stroke="white" stroke-width="1"/><text x="72" y="18" font-family="Arial Black,sans-serif" font-size="9" font-weight="900" fill="#cc2222" text-anchor="middle">SOLUTECMA</text><text x="72" y="27" font-family="Arial,sans-serif" font-size="5" fill="#666" text-anchor="middle">Soluciones Técnicas</text></svg>` },
+  { name: 'Motus', color: '#1a1a1a',
+    svg: `<svg viewBox="0 0 110 36" xmlns="http://www.w3.org/2000/svg"><text x="55" y="20" font-family="Arial Black,sans-serif" font-size="14" font-weight="900" font-style="italic" fill="#1a1a1a" text-anchor="middle">MOTUS</text><text x="55" y="29" font-family="Arial,sans-serif" font-size="5" font-weight="700" fill="#666" text-anchor="middle" letter-spacing="0.5">INTEGRATED TECHNOLOGIES</text></svg>` }
 ];
 
-// Split into two rows
-const row1 = allClients.slice(0, 11);
-const row2 = allClients.slice(11);
+// Split into two rows (23 clients: 12 in row 1, 11 in row 2)
+const row1 = allClients.slice(0, 12);
+const row2 = allClients.slice(12);
 ---
 
 <div class="relative z-10 px-4" style="margin-top: -40px;">
   <div class="max-w-7xl mx-auto">
     <div class="relative rounded-2xl py-6 px-5 overflow-hidden marquee-wrapper"
-      style="background:rgba(18,16,16,0.92); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); border:1px solid rgba(140,82,48,0.25); box-shadow:0 20px 60px rgba(0,0,0,0.65);">
+      style="background:rgba(255, 255, 255, 0.85); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); border:1px solid rgba(140,82,48,0.18); box-shadow:0 20px 60px rgba(86,48,26,0.06);">
 
       <!-- Grain overlay -->
       <div class="grain-overlay"></div>
@@ -65,27 +69,27 @@ const row2 = allClients.slice(11);
 
       <!-- Label -->
       <div class="flex items-center gap-4 mb-5">
-        <div class="h-px flex-1" style="background:linear-gradient(90deg,transparent,rgba(140,82,48,0.4),transparent);"></div>
-        <p class="text-xs font-bold tracking-[0.25em] uppercase whitespace-nowrap font-subtitle" style="color:var(--sand);"
+        <div class="h-px flex-1" style="background:linear-gradient(90deg,transparent,rgba(140,82,48,0.3),transparent);"></div>
+        <p class="text-xs font-bold tracking-[0.25em] uppercase whitespace-nowrap font-subtitle" style="color:var(--saddle-brown-dark);"
           data-es="Empresas que confían en nosotros" data-en="Companies that trust us">
           Empresas que confían en nosotros
         </p>
-        <div class="h-px flex-1" style="background:linear-gradient(90deg,transparent,rgba(140,82,48,0.4),transparent);"></div>
+        <div class="h-px flex-1" style="background:linear-gradient(90deg,transparent,rgba(140,82,48,0.3),transparent);"></div>
       </div>
 
       <!-- ROW 1 → left to right -->
       <div class="relative overflow-hidden mb-4">
         <div class="absolute left-0 top-0 bottom-0 w-16 z-10 pointer-events-none"
-          style="background:linear-gradient(to right,#121010,transparent);"></div>
+          style="background:linear-gradient(to right,#fbf8f0,transparent); opacity: 0.85;"></div>
         <div class="absolute right-0 top-0 bottom-0 w-16 z-10 pointer-events-none"
-          style="background:linear-gradient(to left,#121010,transparent);"></div>
+          style="background:linear-gradient(to left,#fbf8f0,transparent); opacity: 0.85;"></div>
 
         <div class="flex gap-4 w-max items-center strip-marquee-r1">
           {[...row1, ...row1].map((c) => (
             <div class="strip-card flex items-center gap-2.5 flex-shrink-0 px-3.5 py-2.5 rounded-xl"
-              style="background:rgba(255,255,255,0.02); border:1px solid rgba(140,82,48,0.12);">
+              style="background:rgba(140, 82, 48, 0.03); border:1px solid rgba(140, 82, 48, 0.08);">
               <div class="flex-shrink-0" style="width:70px;height:32px;" set:html={c.svg} />
-              <span class="text-xs font-semibold whitespace-nowrap tracking-wide" style="color: var(--steel-100); font-family: system-ui, -apple-system, sans-serif;">{c.name}</span>
+              <span class="text-xs font-semibold whitespace-nowrap tracking-wide" style="color: var(--iron-800); font-family: system-ui, -apple-system, sans-serif;">{c.name}</span>
             </div>
           ))}
         </div>
@@ -94,16 +98,16 @@ const row2 = allClients.slice(11);
       <!-- ROW 2 → right to left -->
       <div class="relative overflow-hidden mb-2">
         <div class="absolute left-0 top-0 bottom-0 w-16 z-10 pointer-events-none"
-          style="background:linear-gradient(to right,#121010,transparent);"></div>
+          style="background:linear-gradient(to right,#fbf8f0,transparent); opacity: 0.85;"></div>
         <div class="absolute right-0 top-0 bottom-0 w-16 z-10 pointer-events-none"
-          style="background:linear-gradient(to left,#121010,transparent);"></div>
+          style="background:linear-gradient(to left,#fbf8f0,transparent); opacity: 0.85;"></div>
 
         <div class="flex gap-4 w-max items-center strip-marquee-r2">
           {[...row2, ...row2].map((c) => (
             <div class="strip-card flex items-center gap-2.5 flex-shrink-0 px-3.5 py-2.5 rounded-xl"
-              style="background:rgba(255,255,255,0.02); border:1px solid rgba(140,82,48,0.12);">
+              style="background:rgba(140, 82, 48, 0.03); border:1px solid rgba(140, 82, 48, 0.08);">
               <div class="flex-shrink-0" style="width:70px;height:32px;" set:html={c.svg} />
-              <span class="text-xs font-semibold whitespace-nowrap tracking-wide" style="color: var(--steel-100); font-family: system-ui, -apple-system, sans-serif;">{c.name}</span>
+              <span class="text-xs font-semibold whitespace-nowrap tracking-wide" style="color: var(--iron-800); font-family: system-ui, -apple-system, sans-serif;">{c.name}</span>
             </div>
           ))}
         </div>
@@ -117,11 +121,11 @@ const row2 = allClients.slice(11);
 </div>
 
 <style>
-  /* Strip card logos — silhouetted white by default, color on hover */
+  /* Strip card logos — silhouetted dark by default, color on hover */
   .strip-card svg {
     width: 100%;
     height: 100%;
-    filter: brightness(0) invert(1) opacity(0.45);
+    filter: grayscale(1) brightness(0.2) opacity(0.4);
     transition: filter 0.3s ease, opacity 0.3s ease;
   }
   .strip-card:hover svg {

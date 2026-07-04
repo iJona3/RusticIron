@@ -5,11 +5,11 @@
 <header id="nav-wrapper" class="fixed top-4 left-0 w-full z-50 flex justify-center px-4" style="box-sizing: border-box;">
   <nav id="navbar" class="flex items-center justify-between w-full max-w-5xl px-5 py-3 rounded-full transition-all duration-500"
     style="
-      background: rgba(10, 9, 9, 0.75);
+      background: rgba(255, 255, 255, 0.75);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(140, 82, 48, 0.25);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.65), 0 0 0 1px rgba(255,255,255,0.03);
+      border: 1px solid rgba(140, 82, 48, 0.22);
+      box-shadow: 0 8px 32px rgba(86, 48, 26, 0.08), 0 0 0 1px rgba(255,255,255,0.8);
       box-sizing: border-box;
     ">
 
@@ -17,14 +17,12 @@
     <a href="#hero" class="flex items-center flex-shrink-0 group" id="brand-logo"
       aria-label="Rustic Iron Mexico — Inicio">
       <img
-        src="/images/24.png"
+        src="/logo2.png"
         alt="Rustic Iron Mexico"
-        class="transition-all duration-300 group-hover:scale-105"
+        class="transition-all duration-300 group-hover:scale-105 h-12 md:h-16 w-auto"
         style="
-          height: 44px;
-          width: auto;
-          max-width: 160px;
-          filter: invert(1) brightness(1.1);
+          max-width: 220px;
+          filter: drop-shadow(0 2px 8px rgba(86, 48, 26, 0.1));
           flex-shrink: 0;
         "
       />
@@ -36,7 +34,6 @@
         { href: '#hero',              labelEs: 'Inicio',    labelEn: 'Home' },
         { href: '#productos',         labelEs: 'Productos', labelEn: 'Products' },
         { href: '#nosotros',          labelEs: 'Nosotros',  labelEn: 'About Us' },
-        { href: '#clientes',          labelEs: 'Clientes',  labelEn: 'Clients' },
         { href: '#contacto',          labelEs: 'Contacto',  labelEn: 'Contact' },
       ].map(item => (
         <li>
@@ -54,7 +51,7 @@
     <!-- CTA & Lang Switcher Desktop -->
     <div class="hidden md:flex items-center gap-3">
       <!-- Language Toggle Button -->
-      <button class="flex items-center gap-1.5 px-3.5 py-2 rounded-full border border-saddle-brown/30 bg-iron-950/40 text-xs font-bold font-subtitle tracking-wider text-sand hover:border-sand hover:text-white transition-all cursor-pointer select-none lang-toggle-btn">
+      <button class="flex items-center gap-1.5 px-3.5 py-2 rounded-full border border-saddle-brown/30 bg-white/40 text-xs font-bold font-subtitle tracking-wider text-saddle-brown-dark hover:border-brick-red hover:text-brick-red transition-all cursor-pointer select-none lang-toggle-btn">
         🌐 <span class="lang-label">EN</span>
       </button>
 
@@ -71,7 +68,7 @@
     <!-- Mobile CTA & Menu Trigger -->
     <div class="flex items-center gap-2.5 md:hidden">
       <!-- Language Switcher Mobile -->
-      <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-saddle-brown/30 bg-iron-950/40 text-[10px] font-bold font-subtitle tracking-wider text-sand lang-toggle-btn cursor-pointer select-none">
+      <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-saddle-brown/30 bg-white/40 text-[10px] font-bold font-subtitle tracking-wider text-saddle-brown-dark lang-toggle-btn cursor-pointer select-none">
         🌐 <span class="lang-label">EN</span>
       </button>
 
@@ -79,9 +76,9 @@
       <button id="mobile-menu-btn" class="flex flex-col gap-1.5 p-2 rounded-xl transition-all duration-300"
         aria-label="Abrir menú de navegación"
         style="min-width: 44px; min-height: 44px; justify-content: center; align-items: center;">
-        <span class="hamburger-line block w-5 h-0.5 rounded-full transition-all duration-300" style="background: var(--steel-200);"></span>
-        <span class="hamburger-line block w-5 h-0.5 rounded-full transition-all duration-300" style="background: var(--steel-200);"></span>
-        <span class="hamburger-line block w-5 h-0.5 rounded-full transition-all duration-300" style="background: var(--steel-200);"></span>
+        <span class="hamburger-line block w-5 h-0.5 rounded-full transition-all duration-300" style="background: var(--iron-900);"></span>
+        <span class="hamburger-line block w-5 h-0.5 rounded-full transition-all duration-300" style="background: var(--iron-900);"></span>
+        <span class="hamburger-line block w-5 h-0.5 rounded-full transition-all duration-300" style="background: var(--iron-900);"></span>
       </button>
     </div>
   </nav>
@@ -90,11 +87,11 @@
   <div id="mobile-menu"
     class="absolute top-full mt-3 w-[calc(100%-2rem)] max-w-xl rounded-3xl overflow-hidden transition-all duration-500"
     style="
-      background: rgba(10, 9, 9, 0.98);
+      background: rgba(251, 248, 240, 0.98);
       backdrop-filter: blur(30px);
       -webkit-backdrop-filter: blur(30px);
-      border: 1px solid rgba(140, 82, 48, 0.25);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.7);
+      border: 1px solid rgba(140, 82, 48, 0.22);
+      box-shadow: 0 20px 60px rgba(86, 48, 26, 0.12);
       opacity: 0;
       transform: translateY(-10px) scale(0.98);
       pointer-events: none;
@@ -107,7 +104,6 @@
         { href: '#hero',      labelEs: 'Inicio',    labelEn: 'Home',     icon: '🏠' },
         { href: '#productos', labelEs: 'Productos', labelEn: 'Products', icon: '⚙️' },
         { href: '#nosotros',  labelEs: 'Nosotros',  labelEn: 'About Us', icon: '🏢' },
-        { href: '#clientes',  labelEs: 'Clientes',  labelEn: 'Clients',  icon: '🤝' },
         { href: '#contacto',  labelEs: 'Contacto',  labelEn: 'Contact',  icon: '📞' },
       ].map(item => (
         <li>
@@ -143,20 +139,20 @@
     transform: translateX(-50%);
     width: 0;
     height: 2px;
-    background: linear-gradient(90deg, var(--sand), var(--saddle-brown));
+    background: linear-gradient(90deg, var(--saddle-brown), var(--brick-red));
     border-radius: 99px;
     transition: width 0.3s ease;
   }
   .nav-link:hover {
-    color: var(--sand-light) !important;
+    color: var(--brick-red) !important;
   }
   .nav-link:hover::after {
     width: 60%;
   }
 
   .mobile-nav-link:hover {
-    background: rgba(140, 82, 48, 0.1);
-    color: var(--sand) !important;
+    background: rgba(140, 82, 48, 0.06);
+    color: var(--brick-red) !important;
     padding-left: 1.5rem;
   }
 
@@ -181,8 +177,8 @@
 
   /* Scrolled state */
   #nav-wrapper.scrolled #navbar {
-    background: rgba(10, 9, 9, 0.92) !important;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.85), 0 0 0 1px rgba(255,255,255,0.04) !important;
+    background: rgba(255, 255, 255, 0.92) !important;
+    box-shadow: 0 4px 24px rgba(86, 48, 26, 0.1) !important;
   }
 </style>
 

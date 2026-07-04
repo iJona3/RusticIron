@@ -1,0 +1,333 @@
+---
+// Brands.astro — Showcase of Brands sold and distributed by Rustic Iron Mexico
+// Recreates the slide mockup in a premium, modern layout
+import TexasStar from './TexasStar.astro';
+
+// We group the brands into two categories based on the client mockup
+const comercializadas = [
+  {
+    name: 'Schmetz',
+    logoType: 'svg',
+    svg: `<svg viewBox="0 0 160 50" xmlns="http://www.w3.org/2000/svg">
+      <!-- Blue circular stamp with needle and pegasus silhouette -->
+      <circle cx="25" cy="25" r="22" fill="#0072bc"/>
+      <!-- Stylized needle -->
+      <line x1="25" y1="9" x2="25" y2="41" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+      <circle cx="25" cy="15" r="2" fill="#0072bc"/>
+      <!-- Stylized pegasus/wings -->
+      <path d="M12,25 C15,22 19,22 22,25 M12,28 C16,25 20,25 24,28 M12,31 C17,28 21,28 25,31" stroke="white" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+      <!-- SCHMETZ Text -->
+      <text x="60" y="34" font-family="Arial Black, sans-serif" font-weight="900" font-size="21" fill="#0072bc" letter-spacing="-0.5px">SCHMETZ</text>
+    </svg>`
+  },
+  {
+    name: 'Wolff Industries, Inc',
+    logoType: 'svg',
+    svg: `<svg viewBox="0 0 160 50" xmlns="http://www.w3.org/2000/svg">
+      <!-- Green block with white scissors symbol -->
+      <rect x="5" y="5" width="40" height="40" rx="3" fill="#1b4d3e"/>
+      <!-- Stylized Scissors -->
+      <circle cx="20" cy="25" r="6" stroke="white" stroke-width="2.5" fill="none"/>
+      <circle cx="30" cy="25" r="6" stroke="white" stroke-width="2.5" fill="none"/>
+      <line x1="25" y1="12" x2="20" y2="25" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="25" y1="12" x2="30" y2="25" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+      <!-- Text -->
+      <text x="56" y="24" font-family="Arial Black, sans-serif" font-weight="900" font-size="16" fill="#1a1a1a" letter-spacing="-0.5px">WOLFF</text>
+      <text x="56" y="38" font-family="Arial, sans-serif" font-weight="700" font-size="8.5" fill="#555" letter-spacing="0.5px">INDUSTRIES, INC</text>
+    </svg>`
+  },
+  {
+    name: 'Groz-Beckert',
+    logoType: 'svg',
+    svg: `<svg viewBox="0 0 160 50" xmlns="http://www.w3.org/2000/svg">
+      <!-- Green banner with white text -->
+      <rect x="5" y="8" width="150" height="34" fill="#00482b"/>
+      <text x="80" y="30" font-family="Arial Black, sans-serif" font-weight="900" font-size="12" fill="white" text-anchor="middle" letter-spacing="1px">GROZ-BECKERT®</text>
+    </svg>`
+  },
+  {
+    name: 'Belmont',
+    logoType: 'svg',
+    svg: `<svg viewBox="0 0 160 50" xmlns="http://www.w3.org/2000/svg">
+      <!-- Text and black scissors handle icon -->
+      <text x="5" y="35" font-family="Arial Black, sans-serif" font-weight="900" font-size="20" fill="#1a1a1a" letter-spacing="-1px">BELMONT</text>
+      <!-- Scissors handle (Horizontal '8' with handles) -->
+      <path d="M115,25 C115,18 123,14 130,18 C135,21 138,25 142,21 C146,17 151,19 153,25 C153,31 146,33 142,29 C138,25 135,29 130,32 C123,36 115,32 115,25 Z" fill="#1a1a1a"/>
+      <circle cx="126" cy="22" r="3" fill="white"/>
+      <circle cx="146" cy="27" r="3" fill="white"/>
+      <line x1="117" y1="25" x2="108" y2="25" stroke="#1a1a1a" stroke-width="4" stroke-linecap="round"/>
+    </svg>`
+  },
+  {
+    name: 'W.S. Bessett Inc',
+    logoType: 'svg',
+    svg: `<svg viewBox="0 0 160 50" xmlns="http://www.w3.org/2000/svg">
+      <!-- Blue banner with white text and shield -->
+      <rect x="5" y="6" width="150" height="38" fill="#123a5f" rx="2"/>
+      <text x="82" y="24" font-family="Georgia, serif" font-weight="bold" font-size="14" fill="white" text-anchor="middle" font-style="italic">W.S. Bessett Inc</text>
+      <!-- Shield/crest -->
+      <path d="M72,30 L88,30 L84,39 L76,39 Z" fill="#ebdccb"/>
+      <path d="M75,29 L85,29 L80,38 Z" fill="#8f2d1e"/>
+      <text x="80" y="36" font-family="Georgia, serif" font-weight="bold" font-size="7" fill="white" text-anchor="middle">B</text>
+    </svg>`
+  },
+  {
+    name: 'Golden Eagle',
+    logoType: 'svg',
+    svg: `<svg viewBox="0 0 160 50" xmlns="http://www.w3.org/2000/svg">
+      <!-- Red flying eagle with banner -->
+      <path d="M15,18 C25,10 40,8 55,14 L50,18 C40,15 30,16 20,22 L15,18 Z M120,18 C110,10 95,8 80,14 L85,18 C95,15 105,16 115,22 L120,18 Z" fill="#cc2222"/>
+      <path d="M30,22 C55,15 85,15 110,22 L105,27 C85,21 55,21 35,27 L30,22 Z" fill="#cc2222"/>
+      <polygon points="65,15 70,25 75,15" fill="#cc2222"/>
+      <!-- Red rounded banner -->
+      <rect x="25" y="27" width="110" height="15" rx="7.5" fill="#cc2222"/>
+      <text x="80" y="38" font-family="Arial Black, sans-serif" font-weight="900" font-size="8.5" fill="white" text-anchor="middle" letter-spacing="0.5px">GOLDEN EAGLE</text>
+    </svg>`
+  },
+  {
+    name: 'Avery Dennison',
+    logoType: 'svg',
+    svg: `<svg viewBox="0 0 160 50" xmlns="http://www.w3.org/2000/svg">
+      <!-- Red triangle chevrons icon -->
+      <g fill="#e1251b">
+        <polygon points="10,38 22,26 22,38"/>
+        <polygon points="25,38 37,26 37,38"/>
+        <polygon points="25,23 37,11 37,23"/>
+      </g>
+      <!-- Avery Dennison Text -->
+      <text x="50" y="24" font-family="Arial Black, sans-serif" font-weight="900" font-size="13" fill="#1a1a1a" letter-spacing="-0.5px">AVERY</text>
+      <text x="50" y="38" font-family="Arial Black, sans-serif" font-weight="900" font-size="13" fill="#1a1a1a" letter-spacing="-0.5px">DENNISON</text>
+    </svg>`
+  },
+  {
+    name: 'Mitchell Abrasives',
+    logoType: 'svg',
+    svg: `<svg viewBox="0 0 160 50" xmlns="http://www.w3.org/2000/svg">
+      <!-- Wavy threads icon -->
+      <path d="M10,18 Q30,12 50,18 T90,18 T130,18" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+      <path d="M10,22 Q30,16 50,22 T90,22 T130,22" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+      <path d="M10,26 Q30,20 50,26 T90,26 T130,26" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+      <!-- Text with underline -->
+      <text x="80" y="41" font-family="Arial Black, sans-serif" font-weight="900" font-size="11.5" fill="#1a1a1a" text-anchor="middle" letter-spacing="0.2px">MITCHELL ABRASIVES</text>
+      <line x1="10" y1="45" x2="150" y2="45" stroke="#1a1a1a" stroke-width="1.5"/>
+    </svg>`
+  }
+];
+
+const distribucion = [
+  {
+    name: 'Organ Needles',
+    labelEs: 'Agujas de Alta Precisión',
+    labelEn: 'High Precision Needles',
+    logoType: 'svg',
+    svg: `<svg viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
+      <!-- Outer red stamp circle with vintage details -->
+      <circle cx="90" cy="90" r="82" fill="#d32f2f" stroke="#ebdccb" stroke-width="2"/>
+      <circle cx="90" cy="90" r="77" fill="none" stroke="white" stroke-width="1.5" stroke-dasharray="3,3"/>
+      <!-- Inner green circle -->
+      <circle cx="90" cy="90" r="56" fill="#2e7d32" stroke="white" stroke-width="2"/>
+      <!-- Stylized silhouette of woman playing pipe organ -->
+      <path d="M72,112 L72,82 L76,82 L76,112 Z M78,112 L78,76 L82,76 L82,112 Z M84,112 L84,70 L88,70 L88,112 Z M90,112 L90,66 L94,66 L94,112 Z M96,112 L96,70 L100,70 L100,112 Z M102,112 L102,76 L106,76 L106,112 Z M108,112 L108,82 L112,82 L112,112 Z" fill="#a5d6a7"/>
+      <!-- Woman sitting silhouette -->
+      <path d="M68,112 C68,100 75,94 80,94 C85,94 88,102 91,102 C94,102 96,108 96,112 Z" fill="white"/>
+      <circle cx="78" cy="90" r="4" fill="white"/>
+      <!-- Needle intersecting -->
+      <line x1="45" y1="135" x2="135" y2="45" stroke="white" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="127" cy="53" r="1.5" fill="#2e7d32"/>
+      <!-- Circular text paths -->
+      <path id="organTextPathTop" d="M22,90 A68,68 0 0,1 158,90" fill="none"/>
+      <path id="organTextPathBottom" d="M158,90 A68,68 0 0,1 22,90" fill="none"/>
+      <text fill="white" font-family="Arial Black, sans-serif" font-weight="900" font-size="10" letter-spacing="1px">
+        <textPath href="#organTextPathTop" startOffset="50%" text-anchor="middle">ORGAN NEEDLES</textPath>
+      </text>
+      <text fill="white" font-family="Arial, sans-serif" font-weight="bold" font-size="6.5" letter-spacing="0.5px">
+        <textPath href="#organTextPathBottom" startOffset="50%" text-anchor="middle">FOR SEWING, KNITTING & FELTING</textPath>
+      </text>
+    </svg>`
+  },
+  {
+    name: 'Dürkopp Adler',
+    labelEs: 'Maquinaria Alemana Pesada',
+    labelEn: 'German Heavy Machinery',
+    logoType: 'img',
+    src: '/media/image4.png' // Matches the original high quality local image asset
+  }
+];
+---
+
+<section id="marcas" class="relative py-24 md:py-32 overflow-hidden"
+  style="background: linear-gradient(180deg, var(--parchment-light) 0%, var(--parchment) 100%); border-top: 1px solid rgba(140,82,48,0.12);">
+
+  <!-- Mesh decorative background glows -->
+  <div class="mesh-bloom"
+    style="width: 550px; height: 550px; top: 10%; left: -8%; background: radial-gradient(circle, rgba(140,82,48,0.04) 0%, transparent 70%);"></div>
+  <div class="mesh-bloom"
+    style="width: 500px; height: 500px; bottom: 5%; right: -5%; background: radial-gradient(circle, rgba(178,63,47,0.03) 0%, transparent 70%);"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+    <!-- ── Title Block ── -->
+    <div class="text-center mb-20 reveal">
+      <span class="section-label mb-5 inline-flex">
+        <TexasStar class="text-brick-red-light" size="w-4 h-4" />
+        <span data-es="Marcas Premium" data-en="Premium Brands">Marcas Premium</span>
+      </span>
+      <h2 class="section-title mt-4 mb-6"
+        data-es="Respaldo de marcas<br/><span class='gradient-text-gold'>líderes a nivel mundial</span>"
+        data-en="Backed by<br/><span class='gradient-text-gold'>world-leading brands</span>">
+        Respaldo de marcas<br/>
+        <span class="gradient-text-gold">líderes a nivel mundial</span>
+      </h2>
+      <p class="text-lg max-w-2xl mx-auto font-body" style="color: var(--iron-700);"
+        data-es="Proveemos insumos y equipos industriales de fabricantes prestigiosos para garantizar el máximo rendimiento y durabilidad en sus operaciones textiles."
+        data-en="We provide industrial supplies and machinery from prestigious manufacturers to guarantee maximum performance and durability in your textile operations.">
+        Proveemos insumos y equipos industriales de fabricantes prestigiosos para garantizar el máximo rendimiento y durabilidad en sus operaciones textiles.
+      </p>
+    </div>
+
+    <!-- ── Dual Column Brand Showcase Layout ── -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-start">
+
+      <!-- Column 1: Marcas Comercializadas (Grid) -->
+      <div class="lg:col-span-7 flex flex-col gap-6">
+        <div class="flex items-center gap-4 mb-2 reveal">
+          <TexasStar class="text-saddle-brown" size="w-4 h-4" />
+          <h3 class="text-2xl font-bold uppercase tracking-wider font-subtitle" style="color: var(--saddle-brown-dark);"
+            data-es="Marcas Comercializadas" data-en="Commercialized Brands">
+            Marcas Comercializadas
+          </h3>
+          <div class="h-px flex-1" style="background: linear-gradient(90deg, rgba(140,82,48,0.25), transparent);"></div>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+          {comercializadas.map((brand, i) => (
+            <div
+              class="brand-card group relative flex items-center justify-center p-4 rounded-xl leather-card reveal"
+              style={`transition-delay: ${i * 40}ms; min-height: 85px;`}
+            >
+              <!-- Tactile grain overlay -->
+              <div class="grain-overlay"></div>
+
+              <!-- SVG Logo render -->
+              <div class="w-full flex items-center justify-center transition-all duration-300 group-hover:scale-106 select-none"
+                style="height: 48px;"
+                set:html={brand.svg}
+              />
+
+              <!-- Colored border overlay on hover -->
+              <div class="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                style="box-shadow: inset 0 0 0 1px rgba(140,82,48,0.3), 0 6px 20px rgba(140,82,48,0.08);"></div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Column 2: Marcas con Distribución (Premium Highlights) -->
+      <div class="lg:col-span-5 flex flex-col gap-6">
+        <div class="flex items-center gap-4 mb-2 reveal">
+          <TexasStar class="text-brick-red" size="w-4 h-4" />
+          <h3 class="text-2xl font-bold uppercase tracking-wider font-subtitle" style="color: var(--brick-red-dark);"
+            data-es="Distribución Autorizada" data-en="Authorized Distribution">
+            Distribución Autorizada
+          </h3>
+          <div class="h-px flex-1" style="background: linear-gradient(90deg, rgba(178,63,47,0.25), transparent);"></div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row lg:flex-col gap-5">
+          {distribucion.map((brand, i) => (
+            <div
+              class="dist-card group relative flex items-center gap-5 p-5 rounded-2xl reveal w-full"
+              style={`
+                background: linear-gradient(135deg, rgba(255,255,255,0.85) 0%, rgba(250,244,230,0.9) 100%);
+                border: 1px solid rgba(178,63,47,0.22);
+                box-shadow: inset 0 0 10px rgba(255,255,255,0.5), 0 10px 30px rgba(86,48,26,0.07);
+                transition-delay: ${(i + 1) * 100}ms;
+              `}
+            >
+              <!-- Tactile grain overlay -->
+              <div class="grain-overlay"></div>
+
+              <!-- Top right distributor ribbon -->
+              <div class="absolute top-3 right-3 flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[9px] font-bold uppercase tracking-wider font-subtitle"
+                style="background: rgba(178,63,47,0.1); color: var(--brick-red-light); border: 1px solid rgba(178,63,47,0.18);">
+                <TexasStar class="text-brick-red-light animate-spin-slow" size="w-2 h-2" />
+                <span data-es="Distribuidor" data-en="Distributor">Distribuidor</span>
+              </div>
+
+              <!-- Brand Logo Area -->
+              <div class="flex-shrink-0 flex items-center justify-center p-2 bg-white/40 rounded-xl border border-saddle-brown/5 shadow-inner transition-all duration-400 group-hover:scale-105"
+                style="width: 90px; height: 90px;">
+                {brand.logoType === 'svg' ? (
+                  <div class="w-full h-full flex items-center justify-center" set:html={brand.svg} />
+                ) : (
+                  <img src={brand.src} alt={brand.name} class="w-full h-auto max-h-16 object-contain" />
+                )}
+              </div>
+
+              <!-- Content Description Area -->
+              <div class="flex-grow">
+                <h4 class="text-lg font-bold font-title leading-tight" style="color: var(--iron-950);">{brand.name}</h4>
+                <p class="text-xs font-semibold uppercase tracking-wider mt-1.5 font-subtitle" style="color: var(--brick-red-light);"
+                  data-es={brand.labelEs} data-en={brand.labelEn}>
+                  {brand.labelEs}
+                </p>
+                <p class="text-xs font-body leading-relaxed mt-2" style="color: var(--iron-600);"
+                  data-es="Distribución oficial con soporte técnico directo de planta y stock de refacciones garantizado."
+                  data-en="Official distribution with direct plant technical support and guaranteed spare parts stock.">
+                  Distribución oficial con soporte técnico directo de planta y stock de refacciones garantizado.
+                </p>
+              </div>
+
+              <!-- Animated borders on hover -->
+              <div class="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none"
+                style="box-shadow: inset 0 0 0 1.5px var(--brick-red-light), 0 12px 35px rgba(178,63,47,0.15);"></div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<style>
+  /* Gray-scale logo effect with color transition on hover */
+  .brand-card svg {
+    width: 100%;
+    height: 100%;
+    filter: grayscale(1) opacity(0.35) brightness(0.2);
+    transition: filter 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s ease;
+  }
+  .brand-card:hover svg {
+    filter: none;
+    opacity: 1;
+  }
+
+  .dist-card img, .dist-card svg {
+    filter: grayscale(1) opacity(0.5) brightness(0.3);
+    transition: filter 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.4s ease;
+  }
+  .dist-card:hover img, .dist-card:hover svg {
+    filter: none;
+    opacity: 1;
+  }
+
+  /* Dist card dynamic hover motion */
+  .dist-card {
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), border-color 0.4s ease, box-shadow 0.4s ease;
+  }
+  .dist-card:hover {
+    transform: translateY(-4px) scale(1.015);
+    border-color: rgba(178,63,47,0.45) !important;
+  }
+
+  /* Brand card motion */
+  .brand-card {
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .brand-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(140,82,48,0.4) !important;
+  }
+</style>

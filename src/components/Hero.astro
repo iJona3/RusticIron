@@ -4,27 +4,27 @@ import TexasStar from './TexasStar.astro';
 ---
 
 <section id="hero" class="relative min-h-[100svh] flex flex-col justify-center items-center overflow-hidden"
-  style="background: linear-gradient(160deg, #0a0909 0%, #151313 50%, #0a0909 100%);">
+  style="background: linear-gradient(160deg, var(--parchment-light) 0%, var(--parchment) 60%, var(--parchment-light) 100%);">
 
   <!-- === FORGE / RUST BLOOM BACKGROUND === -->
   <div class="mesh-bloom animate-pulse-glow"
-    style="width:700px; height:700px; top:-15%; left:-18%; background: radial-gradient(circle, rgba(178,63,47,0.15) 0%, transparent 70%);"></div>
+    style="width:700px; height:700px; top:-15%; left:-18%; background: radial-gradient(circle, rgba(178,63,47,0.04) 0%, transparent 70%);"></div>
   <div class="mesh-bloom animate-pulse-glow"
-    style="width:600px; height:600px; bottom:-20%; right:-15%; background: radial-gradient(circle, rgba(140,82,48,0.12) 0%, transparent 70%);"></div>
+    style="width:600px; height:600px; bottom:-20%; right:-15%; background: radial-gradient(circle, rgba(140,82,48,0.03) 0%, transparent 70%);"></div>
   <div class="mesh-bloom animate-pulse-glow"
-    style="width:400px; height:400px; top:40%; left:55%; background: radial-gradient(circle, rgba(222,203,183,0.08) 0%, transparent 70%);"></div>
+    style="width:400px; height:400px; top:40%; left:55%; background: radial-gradient(circle, rgba(222,203,183,0.02) 0%, transparent 70%);"></div>
 
   <!-- === DECORATIVE GRID === -->
-  <div class="absolute inset-0 opacity-[0.02] pointer-events-none"
-    style="background-image: linear-gradient(rgba(222,203,183,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(222,203,183,0.15) 1px, transparent 1px); background-size: 60px 60px;"></div>
+  <div class="absolute inset-0 opacity-[0.04] pointer-events-none"
+    style="background-image: linear-gradient(rgba(140,82,48,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(140,82,48,0.1) 1px, transparent 1px); background-size: 60px 60px;"></div>
 
   <!-- === FLOATING BADGES (desktop) === -->
   <div class="hidden lg:flex absolute top-36 left-12 animate-float" style="animation-delay:0s;">
     <div class="glass-card-gold px-4 py-3 flex items-center gap-2.5 shadow-xl">
       <span class="text-2xl">🇲🇽</span>
       <div>
-        <p class="text-xs font-bold uppercase tracking-wider font-subtitle" style="color:var(--sand);" data-es="100% Mexicana" data-en="100% Mexican">100% Mexicana</p>
-        <p class="text-[10px]" style="color:var(--steel-400);" data-es="Empresa nacional" data-en="National company">Empresa nacional</p>
+        <p class="text-xs font-bold uppercase tracking-wider font-subtitle" style="color:var(--saddle-brown-dark);" data-es="100% Mexicana" data-en="100% Mexican">100% Mexicana</p>
+        <p class="text-[10px]" style="color:var(--iron-600);" data-es="Empresa nacional" data-en="National company">Empresa nacional</p>
       </div>
     </div>
   </div>
@@ -33,8 +33,8 @@ import TexasStar from './TexasStar.astro';
     <div class="glass-card-gold px-4 py-3 flex items-center gap-2.5 shadow-xl">
       <span class="text-2xl">📦</span>
       <div>
-        <p class="text-xs font-bold uppercase tracking-wider font-subtitle" style="color:var(--sand);" data-es="Stock Inmediato" data-en="Immediate Stock">Stock Inmediato</p>
-        <p class="text-[10px]" style="color:var(--steel-400);" data-es="Entrega en planta" data-en="Plant delivery">Entrega en planta</p>
+        <p class="text-xs font-bold uppercase tracking-wider font-subtitle" style="color:var(--saddle-brown-dark);" data-es="Stock Inmediato" data-en="Immediate Stock">Stock Inmediato</p>
+        <p class="text-[10px]" style="color:var(--iron-600);" data-es="Entrega en planta" data-en="Plant delivery">Entrega en planta</p>
       </div>
     </div>
   </div>
@@ -43,8 +43,8 @@ import TexasStar from './TexasStar.astro';
     <div class="glass-card-gold px-4 py-3 flex items-center gap-2.5 shadow-xl">
       <TexasStar class="text-brick-red-light" size="w-6 h-6" />
       <div>
-        <p class="text-xs font-bold uppercase tracking-wider font-subtitle" style="color:var(--sand);" data-es="Dist. Exclusiva" data-en="Exclusive Distr.">Dist. Exclusiva</p>
-        <p class="text-[10px]" style="color:var(--steel-400);" data-es="Marcas mundiales" data-en="Global brands">Marcas mundiales</p>
+        <p class="text-xs font-bold uppercase tracking-wider font-subtitle" style="color:var(--saddle-brown-dark);" data-es="Dist. Exclusiva" data-en="Exclusive Distr.">Dist. Exclusiva</p>
+        <p class="text-[10px]" style="color:var(--iron-600);" data-es="Marcas mundiales" data-en="Global brands">Marcas mundiales</p>
       </div>
     </div>
   </div>
@@ -53,108 +53,205 @@ import TexasStar from './TexasStar.astro';
     <div class="glass-card-gold px-4 py-3 flex items-center gap-2.5 shadow-xl">
       <span class="text-2xl">🏭</span>
       <div>
-        <p class="text-xs font-bold uppercase tracking-wider font-subtitle" style="color:var(--sand);" data-es="21+ Clientes" data-en="21+ Clients">21+ Clientes</p>
-        <p class="text-[10px]" style="color:var(--steel-400);" data-es="Empresas premium" data-en="Premium companies">Empresas premium</p>
+        <p class="text-xs font-bold uppercase tracking-wider font-subtitle" style="color:var(--saddle-brown-dark);" data-es="21+ Clientes" data-en="21+ Clients">21+ Clientes</p>
+        <p class="text-[10px]" style="color:var(--iron-600);" data-es="Empresas premium" data-en="Premium companies">Empresas premium</p>
       </div>
     </div>
   </div>
 
   <!-- === MAIN CONTENT === -->
-  <div class="relative z-10 text-center px-4 max-w-5xl mx-auto pt-28 pb-12 md:pt-36 md:pb-16">
+  <div class="relative z-10 w-full max-w-6xl mx-auto px-4 pt-16 pb-4 md:pt-20 md:pb-4 flex flex-col items-center">
+    
+    <!-- Real Logo Row — flanked by shears (as requested in design) -->
+    <div class="w-full flex items-center justify-center gap-3 md:gap-6 lg:gap-8 mb-4 reveal" style="transition-delay: 0ms;">
+      <!-- Left scissor (black handle) -->
+      <div class="hidden sm:flex flex-shrink-0 animate-float" style="animation-delay: 0.5s;">
+        <img
+          src="/images/black_shears.png"
+          alt="Tijeras industriales negras"
+          class="w-12 h-auto sm:w-20 md:w-28 lg:w-32 drop-shadow-[0_8px_24px_rgba(86,48,26,0.15)] hover:scale-105 transition-all duration-300 transform rotate-[45deg]"
+        />
+      </div>
 
-    <!-- Real Logo — centered hero display -->
-    <div class="flex justify-center mb-8 reveal" style="transition-delay: 0ms;">
-      <div class="relative">
+      <!-- Center Logo -->
+      <div class="relative flex-shrink-0">
         <!-- Glow behind logo -->
-        <div class="absolute inset-0 blur-3xl scale-150 opacity-25 rounded-full pointer-events-none"
+        <div class="absolute inset-0 blur-3xl scale-150 opacity-15 rounded-full pointer-events-none"
           style="background: radial-gradient(circle, var(--brick-red) 0%, transparent 75%);"></div>
         <img
-          src="/images/24.png"
+          src="/logo2.png"
           alt="Rustic Iron Mexico"
-          class="relative z-10 transition-all duration-500 hover:scale-105"
+          class="relative z-10 transition-all duration-500 hover:scale-105 h-12 sm:h-16 md:h-24 w-auto"
           style="
-            height: 95px;
-            width: auto;
-            max-width: 320px;
-            filter: invert(1) brightness(1.05) drop-shadow(0 0 24px rgba(178,63,47,0.35));
+            max-width: 480px;
+            filter: drop-shadow(0 4px 16px rgba(86,48,26,0.12));
           "
+        />
+      </div>
+
+      <!-- Right scissor (pink handle) -->
+      <div class="hidden sm:flex flex-shrink-0 animate-float" style="animation-delay: 1.2s;">
+        <img
+          src="/images/pink_shears.png"
+          alt="Tijeras industriales rosas"
+          class="w-12 h-auto sm:w-20 md:w-28 lg:w-32 drop-shadow-[0_8px_24px_rgba(86,48,26,0.15)] hover:scale-105 transition-all duration-300 transform -rotate-[45deg]"
         />
       </div>
     </div>
 
-    <!-- Label -->
-    <div class="flex justify-center mb-6 reveal" style="transition-delay: 60ms;">
-      <span class="section-label">
-        <TexasStar class="text-brick-red-light" size="w-4 h-4" />
-        <span data-es="Industria Textil · Saltillo, Coahuila" data-en="Textile Industry · Saltillo, Coahuila">Industria Textil · Saltillo, Coahuila</span>
-      </span>
+    <!-- On mobile (flanking images shown side-by-side below logo if screen is extra small) -->
+    <div class="flex sm:hidden justify-center gap-6 mb-8 reveal" style="transition-delay: 30ms;">
+      <img
+        src="/images/black_shears.png"
+        alt="Tijeras industriales negras"
+        class="w-16 h-auto drop-shadow-lg transform rotate-[45deg]"
+      />
+      <img
+        src="/images/pink_shears.png"
+        alt="Tijeras industriales rosas"
+        class="w-16 h-auto drop-shadow-lg transform -rotate-[45deg]"
+      />
     </div>
 
-    <!-- Headline -->
-    <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-none mb-6 reveal" 
-      style="transition-delay: 120ms; font-family: var(--font-title);"
-      data-es="Tu socio estratégico<br class='hidden sm:block' /><span class='gradient-text-gold'>en la industria</span><br class='hidden sm:block' /><span style='color: var(--steel-50);'>textil</span>"
-      data-en="Your strategic partner<br class='hidden sm:block' /><span class='gradient-text-gold'>in the textile</span><br class='hidden sm:block' /><span style='color: var(--steel-50);'>industry</span>">
-      Tu socio estratégico<br class="hidden sm:block" />
-      <span class="gradient-text-gold">en la industria</span><br class="hidden sm:block" />
-      <span style="color: var(--steel-50);">textil</span>
-    </h1>
+    <!-- Two-Column Grid: Text & Info vs Brand Logos -->
+    <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-12 items-start text-left mb-6">
+      
+      <!-- Left Column: Content & Legal Info -->
+      <div class="flex flex-col">
+        <!-- Label -->
+        <div class="flex justify-start mb-4 reveal" style="transition-delay: 60ms;">
+          <span class="section-label">
+            <TexasStar class="text-brick-red-light" size="w-4 h-4" />
+            <span data-es="Industria Textil · Saltillo, Coahuila" data-en="Textile Industry · Saltillo, Coahuila">Industria Textil · Saltillo, Coahuila</span>
+          </span>
+        </div>
 
-    <!-- Sub -->
-    <p class="text-lg md:text-xl max-w-2xl mx-auto mb-10 reveal font-body" 
-      style="color: var(--steel-400); transition-delay: 240ms; line-height: 1.7;"
-      data-es="Comercialización y distribución de productos de las mejores marcas mundiales — <strong style='color: var(--sand-light);'>Organ Needles, Groz-Beckert, Juki, Schmetz, Wolff Industries</strong> — para incrementar tu productividad y generar ahorros reales."
-      data-en="Commercialization and distribution of products from top world brands — <strong style='color: var(--sand-light);'>Organ Needles, Groz-Beckert, Juki, Schmetz, Wolff Industries</strong> — to increase your productivity and generate real savings.">
-      Comercialización y distribución de productos de las mejores marcas mundiales —
-      <strong style="color: var(--sand-light);">Organ Needles, Groz-Beckert, Juki, Schmetz, Wolff Industries</strong> —
-      para incrementar tu productividad y generar ahorros reales.
-    </p>
+        <!-- Headline -->
+        <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-3 reveal font-title" 
+          style="transition-delay: 120ms; color: var(--iron-950);"
+          data-es="Comercialización y Distribución<br class='hidden sm:block' /><span class='gradient-text-gold'>de Productos para la</span><br class='hidden sm:block' />Industria Textil"
+          data-en="Commercialization & Distribution<br class='hidden sm:block' /><span class='gradient-text-gold'>of Products for the</span><br class='hidden sm:block' />Textile Industry">
+          Comercialización y Distribución<br class="hidden sm:block" />
+          <span class="gradient-text-gold">de Productos para la</span><br class="hidden sm:block" />
+          Industria Textil
+        </h1>
 
-    <!-- CTAs -->
-    <div class="flex flex-wrap justify-center gap-4 mb-14 reveal" style="transition-delay: 360ms;">
-      <a href="#productos" class="btn-gold text-sm">
-        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
-        </svg>
-        <span data-es="Explorar Productos" data-en="Explore Products">Explorar Productos</span>
-      </a>
-      <a href="https://wa.me/528441227872?text=Hola%2C%20quiero%20más%20información%20sobre%20sus%20productos"
-        target="_blank" rel="noopener noreferrer"
-        class="btn-outline text-sm">
-        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-        </svg>
-        <span data-es="Contactar por WhatsApp" data-en="Contact on WhatsApp">Contactar por WhatsApp</span>
-      </a>
+        <!-- Legal Entity -->
+        <div class="reveal mb-3 flex flex-col gap-1 border-l-4 border-brick-red/30 pl-3 py-1" style="transition-delay: 180ms;">
+          <p class="text-base md:text-lg font-bold uppercase tracking-wider font-subtitle" style="color: var(--saddle-brown-dark);"
+            data-es="Ana Celia de la Peña Cuevas" data-en="Ana Celia de la Peña Cuevas">
+            Ana Celia de la Peña Cuevas
+          </p>
+          <p class="text-xs md:text-sm uppercase tracking-wider font-subtitle" style="color: var(--iron-500);"
+            data-es="Persona Física" data-en="Sole Proprietorship">
+            Persona Física
+          </p>
+        </div>
+
+        <!-- Sub text -->
+        <p class="text-sm md:text-base mb-4 reveal font-body leading-relaxed" 
+          style="color: var(--iron-700); transition-delay: 240ms;"
+          data-es="Comercialización y distribución de insumos de las mejores marcas mundiales para incrementar tu productividad y generar ahorros reales."
+          data-en="Commercialization and distribution of inputs from top world brands to increase your productivity and generate real savings.">
+          Comercialización y distribución de insumos de las mejores marcas mundiales para incrementar tu productividad y generar ahorros reales.
+        </p>
+
+        <!-- CTAs -->
+        <div class="flex flex-wrap gap-3 reveal font-subtitle" style="transition-delay: 300ms;">
+          <a href="#productos" class="btn-gold text-xs px-5 py-2.5">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+            </svg>
+            <span data-es="Explorar Productos" data-en="Explore Products">Explorar Productos</span>
+          </a>
+          <a href="https://wa.me/528441227872?text=Hola%2C%20quiero%20más%20información%20sobre%20sus%20productos"
+            target="_blank" rel="noopener noreferrer"
+            class="btn-outline text-xs px-5 py-2.5">
+            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            <span data-es="Contactar por WhatsApp" data-en="Contact on WhatsApp">Contactar por WhatsApp</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="reveal w-full flex flex-col md:mt-4" style="transition-delay: 200ms;">
+        <div class="leather-card p-4 flex flex-col items-center justify-center gap-4 shadow-xl w-full"
+             style="background: rgba(255, 255, 255, 0.5); border: 1px solid rgba(140, 82, 48, 0.15);">
+          <p class="text-xs font-bold uppercase tracking-[0.2em] font-subtitle" style="color: var(--saddle-brown-dark);"
+            data-es="Distribución Autorizada" data-en="Authorized Distribution">
+            Distribución Autorizada
+          </p>
+          
+          <div class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-1 lg:grid-cols-3 gap-3 w-full items-stretch">
+            <!-- Organ Needles SVG Logo -->
+            <div class="flex flex-col items-center text-center p-3 rounded-2xl bg-white/80 shadow-sm border border-saddle-brown/10 hover:scale-102 transition-transform duration-300 w-full justify-center min-h-[100px]">
+              <svg viewBox="0 0 100 100" class="w-12 h-12 flex-shrink-0" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="46" fill="white" stroke="#e11d48" stroke-width="8"/>
+                <circle cx="50" cy="50" r="32" fill="#16a34a"/>
+                <path d="M38,55 L58,55 L58,40 L48,40 L48,43 L44,43 L44,38 L62,38 L62,58 L34,58 Z" fill="white"/>
+                <circle cx="58" cy="48" r="3" fill="white"/>
+                <line x1="36" y1="58" x2="36" y2="46" stroke="white" stroke-width="2"/>
+                <line x1="46" y1="42" x2="46" y2="52" stroke="white" stroke-width="1.5"/>
+                <text x="50" y="14" font-family="Arial Black, sans-serif" font-size="7.2" font-weight="900" fill="#e11d48" text-anchor="middle">ORGAN NEEDLES</text>
+                <text x="50" y="92" font-family="Arial, sans-serif" font-size="4.8" font-weight="700" fill="#e11d48" text-anchor="middle">FOR SEWING &amp; KNITTING</text>
+              </svg>
+              <p class="text-xs font-bold font-title text-iron-950 mt-2">Organ Needles</p>
+            </div>
+
+            <!-- Durkopp Adler SVG Logo -->
+            <div class="flex flex-col items-center text-center p-3 rounded-2xl bg-white/80 shadow-sm border border-saddle-brown/10 hover:scale-102 transition-transform duration-300 w-full justify-center min-h-[100px]">
+              <svg viewBox="0 0 240 60" class="h-6 w-auto flex-shrink-0 my-auto" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="30" cy="30" r="22" fill="#005ca9"/>
+                <line x1="16" y1="16" x2="44" y2="44" stroke="white" stroke-width="5" stroke-linecap="round"/>
+                <line x1="44" y1="12" x2="44" y2="44" stroke="white" stroke-width="5" stroke-linecap="round"/>
+                <text x="68" y="26" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="800" fill="#0a0909" letter-spacing="1.5">DÜRKOPP</text>
+                <text x="68" y="48" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="800" fill="#0a0909" letter-spacing="1.5">ADLER</text>
+              </svg>
+              <p class="text-xs font-bold font-title text-iron-950 mt-2">Dürkopp Adler</p>
+            </div>
+
+            <!-- Pfaff Industrial SVG Logo -->
+            <div class="flex flex-col items-center text-center p-3 rounded-2xl bg-white/80 shadow-sm border border-saddle-brown/10 hover:scale-102 transition-transform duration-300 w-full justify-center min-h-[100px]">
+              <svg viewBox="0 0 160 50" class="h-5 w-auto flex-shrink-0 my-auto" xmlns="http://www.w3.org/2000/svg">
+                <text x="5" y="38" font-family="Impact, Arial Black, sans-serif" font-size="36" font-weight="900" fill="#e11d48" letter-spacing="0.5">PFAFF</text>
+                <text x="115" y="38" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#64748b">Industrial</text>
+              </svg>
+              <p class="text-xs font-bold font-title text-iron-950 mt-2">Pfaff Industrial</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
     </div>
 
-    <!-- Mini stats row -->
-    <div class="flex flex-wrap justify-center gap-6 md:gap-12 reveal" style="transition-delay: 480ms;">
+    <!-- Mini stats row (Centered at bottom) -->
+    <div class="w-full flex flex-wrap justify-center gap-4 md:gap-8 reveal pt-3 border-t border-saddle-brown/10 mt-3" style="transition-delay: 360ms;">
       {[
         { num: '21+', labelEs: 'Clientes Premium', labelEn: 'Premium Clients' },
         { num: '100%', labelEs: 'Empresa Mexicana', labelEn: 'Mexican Company' },
         { num: '10+', labelEs: 'Categorías de Producto', labelEn: 'Product Categories' },
         { num: '∞',   labelEs: 'Marcas Mundiales', labelEn: 'Global Brands' },
       ].map(stat => (
-        <div class="text-center">
-          <p class="text-2xl md:text-3xl font-bold font-title" style="color: var(--brick-red-light);">{stat.num}</p>
-          <p class="text-xs tracking-widest uppercase font-subtitle" style="color: var(--sand-dark);" data-es={stat.labelEs} data-en={stat.labelEn}>{stat.labelEs}</p>
+        <div class="text-center px-2">
+          <p class="text-lg md:text-xl font-bold font-title leading-tight" style="color: var(--brick-red-light);">{stat.num}</p>
+          <p class="text-[9px] tracking-widest uppercase font-subtitle" style="color: var(--iron-600);" data-es={stat.labelEs} data-en={stat.labelEn}>{stat.labelEs}</p>
         </div>
       ))}
     </div>
   </div>
 
   <!-- === SCROLL INDICATOR === -->
-  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
-    <span class="text-[10px] tracking-[0.3em] uppercase font-subtitle" style="color: var(--saddle-brown-light);" data-es="Scroll" data-en="Scroll">Scroll</span>
-    <div class="w-5 h-8 rounded-full flex items-center justify-center" style="border: 1px solid rgba(222,203,183,0.15);">
-      <div class="w-1 h-1.5 rounded-full animate-scroll-bounce" style="background: var(--brick-red-light);"></div>
+  <div class="absolute bottom-2 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1">
+    <span class="text-[9px] tracking-[0.3em] uppercase font-subtitle" style="color: var(--saddle-brown);" data-es="Scroll" data-en="Scroll">Scroll</span>
+    <div class="w-4 h-6 rounded-full flex items-center justify-center" style="border: 1px solid rgba(140,82,48,0.3);">
+      <div class="w-1 h-1 rounded-full animate-scroll-bounce" style="background: var(--brick-red-light);"></div>
     </div>
   </div>
 
   <!-- === BOTTOM GRADIENT FADE === -->
   <div class="absolute bottom-0 left-0 right-0 h-32 pointer-events-none"
-    style="background: linear-gradient(to bottom, transparent, var(--iron-950));"></div>
+    style="background: linear-gradient(to bottom, transparent, var(--parchment-light));"></div>
 </section>
 
 <script>

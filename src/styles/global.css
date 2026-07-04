@@ -50,7 +50,7 @@
 @theme {
   /* Brand Typography */
   --font-title: "Playfair Display", serif;
-  --font-subtitle: "Bebas Neue", sans-serif;
+  --font-subtitle: "Outfit", sans-serif;
   --font-body: "Lora", serif;
 
   /* Iron palette → Tailwind utilities */
@@ -110,8 +110,8 @@
   }
 
   body {
-    background-color: var(--iron-950);
-    color: var(--steel-200);
+    background-color: var(--parchment-light);
+    color: var(--iron-800);
     font-family: var(--font-body);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -122,27 +122,27 @@
     font-family: var(--font-title);
     font-weight: 700;
     line-height: 1.25;
-    color: var(--steel-50);
+    color: var(--iron-950);
   }
 
   ::selection {
-    background: rgba(143, 45, 30, 0.4);
-    color: var(--steel-50);
+    background: rgba(143, 45, 30, 0.15);
+    color: var(--iron-950);
   }
 
   ::-webkit-scrollbar {
     width: 8px;
   }
   ::-webkit-scrollbar-track {
-    background: var(--iron-950);
+    background: var(--parchment-light);
   }
   ::-webkit-scrollbar-thumb {
-    background: var(--saddle-brown);
-    border: 2px solid var(--iron-950);
+    background: var(--sand-dark);
+    border: 2px solid var(--parchment-light);
     border-radius: 4px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: var(--brick-red);
+    background: var(--saddle-brown);
   }
 }
 
@@ -167,25 +167,25 @@
 
   .btn-outline {
     @apply inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-bold text-sm tracking-widest border transition-all duration-300 cursor-pointer uppercase;
-    border-color: rgba(222, 203, 183, 0.4);
-    color: var(--sand);
+    border-color: rgba(140, 82, 48, 0.4);
+    color: var(--saddle-brown-dark);
     background: transparent;
     font-family: var(--font-subtitle);
   }
   .btn-outline:hover {
-    background: rgba(222, 203, 183, 0.08);
-    border-color: var(--sand);
+    background: rgba(140, 82, 48, 0.06);
+    border-color: var(--saddle-brown-dark);
     transform: translateY(-2px);
-    box-shadow: 0 4px 20px var(--sand-glow);
+    box-shadow: 0 4px 20px var(--saddle-glow);
   }
 
-  /* --- Leather Card (Dark, Textured) --- */
+  /* --- Leather Card (Light, Textured) --- */
   .leather-card {
-    background: linear-gradient(145deg, #171515 0%, #0d0c0c 100%);
+    background: linear-gradient(145deg, var(--parchment-light) 0%, var(--parchment) 100%);
     border: 1px solid rgba(140, 82, 48, 0.18);
     box-shadow: 
-      inset 0 0 20px rgba(0, 0, 0, 0.75),
-      0 10px 30px rgba(0, 0, 0, 0.5);
+      inset 0 0 12px rgba(140, 82, 48, 0.05),
+      0 8px 30px rgba(86, 48, 26, 0.06);
     border-radius: 16px;
     position: relative;
     overflow: hidden;
@@ -196,11 +196,11 @@
   }
   
   .glass-card-gold {
-    background: linear-gradient(145deg, rgba(140, 82, 48, 0.08) 0%, rgba(10, 9, 9, 0.4) 100%);
-    border: 1px solid rgba(140, 82, 48, 0.25);
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(140, 82, 48, 0.22);
     box-shadow: 
-      inset 0 0 15px rgba(0,0,0,0.4),
-      0 8px 24px rgba(0,0,0,0.3);
+      inset 0 0 10px rgba(255, 255, 255, 0.6),
+      0 8px 24px rgba(86, 48, 26, 0.08);
     border-radius: 16px;
     position: relative;
     overflow: hidden;
@@ -235,7 +235,7 @@
 
   /* --- Gradient Text Warm --- */
   .gradient-text-gold {
-    background: linear-gradient(135deg, var(--sand-light), var(--saddle-brown-light), var(--brick-red-light));
+    background: linear-gradient(135deg, var(--saddle-brown), var(--brick-red), var(--brick-red-dark));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;

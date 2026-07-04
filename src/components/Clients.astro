@@ -7,11 +7,11 @@ const industryColors: Record<string, string> = {
   'Automotriz':  'var(--sand-dark)',
   'Textil':      'var(--saddle-brown-light)',
   'Manufactura': 'var(--brick-red-light)',
-  'Industrial':  'var(--sand)',
+  'Industrial':  'var(--saddle-brown)',
   'Plásticos':   'var(--saddle-brown-light)',
   'Importación': 'var(--brick-red-light)',
   'Seguridad':   'var(--sand-dark)',
-  'Muebles':     'var(--sand)',
+  'Muebles':     'var(--saddle-brown)',
 };
 
 const industryTranslations: Record<string, { es: string, en: string }> = {
@@ -224,12 +224,12 @@ const clients = [
 ---
 
 <section id="clientes" class="relative py-24 md:py-32 overflow-hidden"
-  style="background: linear-gradient(180deg, var(--iron-950) 0%, var(--iron-900) 100%);">
+  style="background: linear-gradient(180deg, var(--parchment-light) 0%, var(--parchment) 100%);">
 
   <div class="mesh-bloom"
-    style="width:600px;height:600px;bottom:-10%;left:-10%;background:radial-gradient(circle,rgba(140,82,48,0.08) 0%,transparent 70%);"></div>
+    style="width:600px;height:600px;bottom:-10%;left:-10%;background:radial-gradient(circle,rgba(140,82,48,0.04) 0%,transparent 70%);"></div>
   <div class="mesh-bloom"
-    style="width:400px;height:400px;top:10%;right:-8%;background:radial-gradient(circle,rgba(178,63,47,0.06) 0%,transparent 70%);"></div>
+    style="width:400px;height:400px;top:10%;right:-8%;background:radial-gradient(circle,rgba(178,63,47,0.03) 0%,transparent 70%);"></div>
 
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
@@ -245,10 +245,10 @@ const clients = [
         Confían en nosotros<br/>
         <span class="gradient-text-gold">líderes de la industria</span>
       </h2>
-      <p class="text-lg max-w-2xl mx-auto font-body" style="color:var(--steel-400);"
-        data-es="Más de <strong style='color:var(--steel-100);'>21 empresas de nivel mundial</strong> nos eligen como su proveedor preferente de insumos textiles industriales."
-        data-en="More than <strong style='color:var(--steel-100);'>21 world-class companies</strong> choose us as their preferred supplier of industrial textile supplies.">
-        Más de <strong style="color:var(--steel-100);">21 empresas de nivel mundial</strong> nos eligen como
+      <p class="text-lg max-w-2xl mx-auto font-body" style="color:var(--iron-700);"
+        data-es="Más de <strong style='color:var(--iron-950);'>21 empresas de nivel mundial</strong> nos eligen como su proveedor preferente de insumos textiles industriales."
+        data-en="More than <strong style='color:var(--iron-950);'>21 world-class companies</strong> choose us as their preferred supplier of industrial textile supplies.">
+        Más de <strong style="color:var(--iron-950);">21 empresas de nivel mundial</strong> nos eligen como
         su proveedor preferente de insumos textiles industriales.
       </p>
     </div>
@@ -275,7 +275,7 @@ const clients = [
             />
 
             <!-- Client name -->
-            <p class="text-center text-xs font-semibold leading-tight w-full mt-1" style="color: var(--steel-100); font-family: system-ui, -apple-system, sans-serif;">
+            <p class="text-center text-xs font-semibold leading-tight w-full mt-1" style="color: var(--iron-800); font-family: system-ui, -apple-system, sans-serif;">
               {client.name}
             </p>
 
@@ -305,7 +305,7 @@ const clients = [
       ].map(s => (
         <div class="text-center">
           <p class="text-2xl md:text-3xl font-bold font-title" style="color:var(--brick-red-light);">{s.num}</p>
-          <p class="text-xs tracking-widest uppercase mt-1 font-subtitle" style="color:var(--sand-dark);"
+          <p class="text-xs tracking-widest uppercase mt-1 font-subtitle" style="color:var(--iron-600);"
             data-es={s.labelEs} data-en={s.labelEn}>{s.labelEs}</p>
         </div>
       ))}
@@ -314,12 +314,12 @@ const clients = [
 </section>
 
 <style>
-  /* SVG logos: silhouetted white by default, color on hover */
+  /* SVG logos: silhouetted dark by default, color on hover */
   .client-logo-card svg {
     width: 100%;
     height: 100%;
     max-height: 52px;
-    filter: brightness(0) invert(1) opacity(0.45);
+    filter: grayscale(1) brightness(0.2) opacity(0.4);
     transition: filter 0.35s ease, opacity 0.35s ease;
   }
   .client-logo-card:hover svg {
@@ -333,7 +333,7 @@ const clients = [
   }
   .client-logo-card:hover {
     transform: translateY(-5px) scale(1.04);
-    background: linear-gradient(145deg, #1f1b1b, #121010) !important;
+    background: linear-gradient(145deg, var(--parchment-light), var(--parchment)) !important;
     border-color: rgba(140,82,48,0.45) !important;
   }
 </style>
