@@ -62,17 +62,8 @@ import TexasStar from './TexasStar.astro';
   <!-- === MAIN CONTENT === -->
   <div class="relative z-10 w-full max-w-6xl mx-auto px-4 pt-16 pb-4 md:pt-20 md:pb-4 flex flex-col items-center">
     
-    <!-- Real Logo Row — flanked by shears (as requested in design) -->
+    <!-- Real Logo Row -->
     <div class="w-full flex items-center justify-center gap-3 md:gap-6 lg:gap-8 mb-4 reveal" style="transition-delay: 0ms;">
-      <!-- Left scissor (black handle) -->
-      <div class="hidden sm:flex flex-shrink-0 animate-float" style="animation-delay: 0.5s;">
-        <img
-          src="/images/black_shears.png"
-          alt="Tijeras industriales negras"
-          class="w-12 h-auto sm:w-20 md:w-28 lg:w-32 drop-shadow-[0_8px_24px_rgba(86,48,26,0.15)] hover:scale-105 transition-all duration-300 transform rotate-[45deg]"
-        />
-      </div>
-
       <!-- Center Logo -->
       <div class="relative flex-shrink-0">
         <!-- Glow behind logo -->
@@ -88,29 +79,6 @@ import TexasStar from './TexasStar.astro';
           "
         />
       </div>
-
-      <!-- Right scissor (pink handle) -->
-      <div class="hidden sm:flex flex-shrink-0 animate-float" style="animation-delay: 1.2s;">
-        <img
-          src="/images/pink_shears.png"
-          alt="Tijeras industriales rosas"
-          class="w-12 h-auto sm:w-20 md:w-28 lg:w-32 drop-shadow-[0_8px_24px_rgba(86,48,26,0.15)] hover:scale-105 transition-all duration-300 transform -rotate-[45deg]"
-        />
-      </div>
-    </div>
-
-    <!-- On mobile (flanking images shown side-by-side below logo if screen is extra small) -->
-    <div class="flex sm:hidden justify-center gap-6 mb-8 reveal" style="transition-delay: 30ms;">
-      <img
-        src="/images/black_shears.png"
-        alt="Tijeras industriales negras"
-        class="w-16 h-auto drop-shadow-lg transform rotate-[45deg]"
-      />
-      <img
-        src="/images/pink_shears.png"
-        alt="Tijeras industriales rosas"
-        class="w-16 h-auto drop-shadow-lg transform -rotate-[45deg]"
-      />
     </div>
 
     <!-- Two-Column Grid: Text & Info vs Brand Logos -->
@@ -183,7 +151,7 @@ import TexasStar from './TexasStar.astro';
             Distribución Autorizada
           </p>
           
-          <div class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-1 lg:grid-cols-3 gap-3 w-full items-stretch">
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 gap-3 w-full items-stretch">
             <!-- Organ Needles SVG Logo -->
             <div class="flex flex-col items-center text-center p-3 rounded-2xl bg-white/80 shadow-sm border border-saddle-brown/10 hover:scale-102 transition-transform duration-300 w-full justify-center min-h-[100px]">
               <svg viewBox="0 0 100 100" class="w-12 h-12 flex-shrink-0" xmlns="http://www.w3.org/2000/svg">
@@ -209,15 +177,6 @@ import TexasStar from './TexasStar.astro';
                 <text x="68" y="48" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="800" fill="#0a0909" letter-spacing="1.5">ADLER</text>
               </svg>
               <p class="text-xs font-bold font-title text-iron-950 mt-2">Dürkopp Adler</p>
-            </div>
-
-            <!-- Pfaff Industrial SVG Logo -->
-            <div class="flex flex-col items-center text-center p-3 rounded-2xl bg-white/80 shadow-sm border border-saddle-brown/10 hover:scale-102 transition-transform duration-300 w-full justify-center min-h-[100px]">
-              <svg viewBox="0 0 160 50" class="h-5 w-auto flex-shrink-0 my-auto" xmlns="http://www.w3.org/2000/svg">
-                <text x="5" y="38" font-family="Impact, Arial Black, sans-serif" font-size="36" font-weight="900" fill="#e11d48" letter-spacing="0.5">PFAFF</text>
-                <text x="115" y="38" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#64748b">Industrial</text>
-              </svg>
-              <p class="text-xs font-bold font-title text-iron-950 mt-2">Pfaff Industrial</p>
             </div>
           </div>
         </div>
