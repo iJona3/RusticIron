@@ -7,110 +7,47 @@ import TexasStar from './TexasStar.astro';
 const comercializadas = [
   {
     name: 'Schmetz',
-    logoType: 'svg',
-    svg: `<svg viewBox="0 0 160 50" xmlns="http://www.w3.org/2000/svg">
-      <!-- Blue circular stamp with needle and pegasus silhouette -->
-      <circle cx="25" cy="25" r="22" fill="#0072bc"/>
-      <!-- Stylized needle -->
-      <line x1="25" y1="9" x2="25" y2="41" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
-      <circle cx="25" cy="15" r="2" fill="#0072bc"/>
-      <!-- Stylized pegasus/wings -->
-      <path d="M12,25 C15,22 19,22 22,25 M12,28 C16,25 20,25 24,28 M12,31 C17,28 21,28 25,31" stroke="white" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-      <!-- SCHMETZ Text -->
-      <text x="60" y="34" font-family="Arial Black, sans-serif" font-weight="900" font-size="21" fill="#0072bc" letter-spacing="-0.5px">SCHMETZ</text>
-    </svg>`
+    logoType: 'img',
+    src: '/logos/schmetz.png'
   },
   {
     name: 'Wolff Industries, Inc',
-    logoType: 'svg',
-    svg: `<svg viewBox="0 0 160 50" xmlns="http://www.w3.org/2000/svg">
-      <!-- Green block with white scissors symbol -->
-      <rect x="5" y="5" width="40" height="40" rx="3" fill="#1b4d3e"/>
-      <!-- Stylized Scissors -->
-      <circle cx="20" cy="25" r="6" stroke="white" stroke-width="2.5" fill="none"/>
-      <circle cx="30" cy="25" r="6" stroke="white" stroke-width="2.5" fill="none"/>
-      <line x1="25" y1="12" x2="20" y2="25" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
-      <line x1="25" y1="12" x2="30" y2="25" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
-      <!-- Text -->
-      <text x="56" y="24" font-family="Arial Black, sans-serif" font-weight="900" font-size="16" fill="#1a1a1a" letter-spacing="-0.5px">WOLFF</text>
-      <text x="56" y="38" font-family="Arial, sans-serif" font-weight="700" font-size="8.5" fill="#555" letter-spacing="0.5px">INDUSTRIES, INC</text>
-    </svg>`
+    logoType: 'img',
+    src: '/logos/wolff.png'
   },
   {
     name: 'Groz-Beckert',
-    logoType: 'svg',
-    svg: `<svg viewBox="0 0 160 50" xmlns="http://www.w3.org/2000/svg">
-      <!-- Green banner with white text -->
-      <rect x="5" y="8" width="150" height="34" fill="#00482b"/>
-      <text x="80" y="30" font-family="Arial Black, sans-serif" font-weight="900" font-size="12" fill="white" text-anchor="middle" letter-spacing="1px">GROZ-BECKERT®</text>
-    </svg>`
+    logoType: 'img',
+    src: '/logos/groz.png',
+    style: 'transform: scale(1.4);'
   },
   {
     name: 'Belmont',
-    logoType: 'svg',
-    svg: `<svg viewBox="0 0 160 50" xmlns="http://www.w3.org/2000/svg">
-      <!-- Text and black scissors handle icon -->
-      <text x="5" y="35" font-family="Arial Black, sans-serif" font-weight="900" font-size="20" fill="#1a1a1a" letter-spacing="-1px">BELMONT</text>
-      <!-- Scissors handle (Horizontal '8' with handles) -->
-      <path d="M115,25 C115,18 123,14 130,18 C135,21 138,25 142,21 C146,17 151,19 153,25 C153,31 146,33 142,29 C138,25 135,29 130,32 C123,36 115,32 115,25 Z" fill="#1a1a1a"/>
-      <circle cx="126" cy="22" r="3" fill="white"/>
-      <circle cx="146" cy="27" r="3" fill="white"/>
-      <line x1="117" y1="25" x2="108" y2="25" stroke="#1a1a1a" stroke-width="4" stroke-linecap="round"/>
-    </svg>`
+    logoType: 'img',
+    src: '/logos/belmont.png',
+    style: 'transform: scale(1.45);'
   },
   {
     name: 'W.S. Bessett Inc',
-    logoType: 'svg',
-    svg: `<svg viewBox="0 0 160 50" xmlns="http://www.w3.org/2000/svg">
-      <!-- Blue banner with white text and shield -->
-      <rect x="5" y="6" width="150" height="38" fill="#123a5f" rx="2"/>
-      <text x="82" y="24" font-family="Georgia, serif" font-weight="bold" font-size="14" fill="white" text-anchor="middle" font-style="italic">W.S. Bessett Inc</text>
-      <!-- Shield/crest -->
-      <path d="M72,30 L88,30 L84,39 L76,39 Z" fill="#ebdccb"/>
-      <path d="M75,29 L85,29 L80,38 Z" fill="#8f2d1e"/>
-      <text x="80" y="36" font-family="Georgia, serif" font-weight="bold" font-size="7" fill="white" text-anchor="middle">B</text>
-    </svg>`
+    logoType: 'img',
+    src: '/logos/bessett.jpeg'
   },
   {
     name: 'Golden Eagle',
-    logoType: 'svg',
-    svg: `<svg viewBox="0 0 160 50" xmlns="http://www.w3.org/2000/svg">
-      <!-- Red flying eagle with banner -->
-      <path d="M15,18 C25,10 40,8 55,14 L50,18 C40,15 30,16 20,22 L15,18 Z M120,18 C110,10 95,8 80,14 L85,18 C95,15 105,16 115,22 L120,18 Z" fill="#cc2222"/>
-      <path d="M30,22 C55,15 85,15 110,22 L105,27 C85,21 55,21 35,27 L30,22 Z" fill="#cc2222"/>
-      <polygon points="65,15 70,25 75,15" fill="#cc2222"/>
-      <!-- Red rounded banner -->
-      <rect x="25" y="27" width="110" height="15" rx="7.5" fill="#cc2222"/>
-      <text x="80" y="38" font-family="Arial Black, sans-serif" font-weight="900" font-size="8.5" fill="white" text-anchor="middle" letter-spacing="0.5px">GOLDEN EAGLE</text>
-    </svg>`
+    logoType: 'img',
+    src: '/logos/goldeneagle.png'
   },
   {
     name: 'Avery Dennison',
-    logoType: 'svg',
-    svg: `<svg viewBox="0 0 160 50" xmlns="http://www.w3.org/2000/svg">
-      <!-- Red triangle chevrons icon -->
-      <g fill="#e1251b">
-        <polygon points="10,38 22,26 22,38"/>
-        <polygon points="25,38 37,26 37,38"/>
-        <polygon points="25,23 37,11 37,23"/>
-      </g>
-      <!-- Avery Dennison Text -->
-      <text x="50" y="24" font-family="Arial Black, sans-serif" font-weight="900" font-size="13" fill="#1a1a1a" letter-spacing="-0.5px">AVERY</text>
-      <text x="50" y="38" font-family="Arial Black, sans-serif" font-weight="900" font-size="13" fill="#1a1a1a" letter-spacing="-0.5px">DENNISON</text>
-    </svg>`
+    logoType: 'img',
+    src: '/logos/avery.png',
+    style: 'transform: scale(1.8);'
   },
   {
     name: 'Mitchell Abrasives',
-    logoType: 'svg',
-    svg: `<svg viewBox="0 0 160 50" xmlns="http://www.w3.org/2000/svg">
-      <!-- Wavy threads icon -->
-      <path d="M10,18 Q30,12 50,18 T90,18 T130,18" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
-      <path d="M10,22 Q30,16 50,22 T90,22 T130,22" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
-      <path d="M10,26 Q30,20 50,26 T90,26 T130,26" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
-      <!-- Text with underline -->
-      <text x="80" y="41" font-family="Arial Black, sans-serif" font-weight="900" font-size="11.5" fill="#1a1a1a" text-anchor="middle" letter-spacing="0.2px">MITCHELL ABRASIVES</text>
-      <line x1="10" y1="45" x2="150" y2="45" stroke="#1a1a1a" stroke-width="1.5"/>
-    </svg>`
+    logoType: 'img',
+    src: '/logos/mitchell.png',
+    style: 'transform: scale(2.9);'
   }
 ];
 
@@ -119,38 +56,15 @@ const distribucion = [
     name: 'Organ Needles',
     labelEs: 'Agujas de Alta Precisión',
     labelEn: 'High Precision Needles',
-    logoType: 'svg',
-    svg: `<svg viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
-      <!-- Outer red stamp circle with vintage details -->
-      <circle cx="90" cy="90" r="82" fill="#d32f2f" stroke="#ebdccb" stroke-width="2"/>
-      <circle cx="90" cy="90" r="77" fill="none" stroke="white" stroke-width="1.5" stroke-dasharray="3,3"/>
-      <!-- Inner green circle -->
-      <circle cx="90" cy="90" r="56" fill="#2e7d32" stroke="white" stroke-width="2"/>
-      <!-- Stylized silhouette of woman playing pipe organ -->
-      <path d="M72,112 L72,82 L76,82 L76,112 Z M78,112 L78,76 L82,76 L82,112 Z M84,112 L84,70 L88,70 L88,112 Z M90,112 L90,66 L94,66 L94,112 Z M96,112 L96,70 L100,70 L100,112 Z M102,112 L102,76 L106,76 L106,112 Z M108,112 L108,82 L112,82 L112,112 Z" fill="#a5d6a7"/>
-      <!-- Woman sitting silhouette -->
-      <path d="M68,112 C68,100 75,94 80,94 C85,94 88,102 91,102 C94,102 96,108 96,112 Z" fill="white"/>
-      <circle cx="78" cy="90" r="4" fill="white"/>
-      <!-- Needle intersecting -->
-      <line x1="45" y1="135" x2="135" y2="45" stroke="white" stroke-width="3" stroke-linecap="round"/>
-      <circle cx="127" cy="53" r="1.5" fill="#2e7d32"/>
-      <!-- Circular text paths -->
-      <path id="organTextPathTop" d="M22,90 A68,68 0 0,1 158,90" fill="none"/>
-      <path id="organTextPathBottom" d="M158,90 A68,68 0 0,1 22,90" fill="none"/>
-      <text fill="white" font-family="Arial Black, sans-serif" font-weight="900" font-size="10" letter-spacing="1px">
-        <textPath href="#organTextPathTop" startOffset="50%" text-anchor="middle">ORGAN NEEDLES</textPath>
-      </text>
-      <text fill="white" font-family="Arial, sans-serif" font-weight="bold" font-size="6.5" letter-spacing="0.5px">
-        <textPath href="#organTextPathBottom" startOffset="50%" text-anchor="middle">FOR SEWING, KNITTING & FELTING</textPath>
-      </text>
-    </svg>`
+    logoType: 'img',
+    src: '/logos/needles.png'
   },
   {
     name: 'Dürkopp Adler',
     labelEs: 'Maquinaria Alemana Pesada',
     labelEn: 'German Heavy Machinery',
     logoType: 'img',
-    src: '/media/image4.png' // Matches the original high quality local image asset
+    src: '/logos/durkopp.png'
   }
 ];
 ---
@@ -208,11 +122,17 @@ const distribucion = [
               <!-- Tactile grain overlay -->
               <div class="grain-overlay"></div>
 
-              <!-- SVG Logo render -->
-              <div class="w-full flex items-center justify-center transition-all duration-300 group-hover:scale-106 select-none"
-                style="height: 48px;"
-                set:html={brand.svg}
-              />
+              <!-- Logo render -->
+              {brand.logoType === 'img' ? (
+                <div class="w-full flex items-center justify-center transition-all duration-300 group-hover:scale-106 select-none" style="height: 48px;">
+                  <img src={brand.src} alt={brand.name} class="max-w-full max-h-full object-contain" style={brand.style || ''} />
+                </div>
+              ) : (
+                <div class="w-full flex items-center justify-center transition-all duration-300 group-hover:scale-106 select-none"
+                  style="height: 48px;"
+                  set:html={brand.svg}
+                />
+              )}
 
               <!-- Colored border overlay on hover -->
               <div class="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
@@ -292,24 +212,22 @@ const distribucion = [
 </section>
 
 <style>
-  /* Gray-scale logo effect with color transition on hover */
-  .brand-card svg {
+  /* Keep original colors with soft opacity transition */
+  .brand-card img, .brand-card svg {
     width: 100%;
     height: 100%;
-    filter: grayscale(1) opacity(0.35) brightness(0.2);
-    transition: filter 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s ease;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
   }
-  .brand-card:hover svg {
-    filter: none;
+  .brand-card:hover img, .brand-card:hover svg {
     opacity: 1;
   }
 
   .dist-card img, .dist-card svg {
-    filter: grayscale(1) opacity(0.5) brightness(0.3);
-    transition: filter 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.4s ease;
+    opacity: 0.95;
+    transition: opacity 0.4s ease;
   }
   .dist-card:hover img, .dist-card:hover svg {
-    filter: none;
     opacity: 1;
   }
 
