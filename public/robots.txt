@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rusticironmexico.com/sitemap-index.xml
